@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +52,19 @@ public class AuditTrailRepoService {
                 dto.setUserName(rs.getString("user_name"));
                 dto.setIpAddress(rs.getString("ip_addresses"));
                 dto.setUrl(rs.getString("url"));
-                dto.setEventTime(rs.getString("event_time"));
+                //
+                Timestamp ts = rs.getTimestamp("event_time");
+
+                String formattedTime = "";
+
+                if (ts != null) {
+                    formattedTime = ts.toInstant()
+                            .atZone(ZoneId.of("Asia/Kolkata"))
+                            .format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm"));
+                }
+
+                dto.setEventTime(formattedTime);
+                //
                 dto.setDetail(rs.getString("detail"));
                 list.add(dto);
             }
@@ -197,11 +210,13 @@ public class AuditTrailRepoService {
                     dto.setUrl(rs.getString("url"));
 
                     Timestamp ts = rs.getTimestamp("event_time");
+                    String formattedTime = "";
                     if (ts != null) {
-                        dto.setEventTime(ts.toLocalDateTime()
-                                .format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+                        formattedTime = ts.toInstant()
+                                .atZone(ZoneId.of("Asia/Kolkata"))
+                                .format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm"));
                     }
-
+                    dto.setEventTime(formattedTime);
                     dto.setDetail(rs.getString("detail"));
                     list.add(dto);
                 }

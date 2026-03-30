@@ -72,7 +72,7 @@ public class AuditTrailController {
                     e.getUserName(),
                     e.getIpAddress(),
                     e.getUrl(),
-                    e.getEventTime(),
+                    e.getEventTime() != null ? e.getEventTime() : "",
                     e.getDetail() != null ? e.getDetail().replace(",", " ") : ""
             ));
         }
