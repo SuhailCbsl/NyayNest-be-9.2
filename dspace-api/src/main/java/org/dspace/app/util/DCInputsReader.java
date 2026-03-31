@@ -21,6 +21,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.dspace.content.Collection;
 import org.dspace.content.MetadataSchemaEnum;
 import org.dspace.core.Utils;
+import org.dspace.services.ConfigurationService;
 import org.dspace.services.factory.DSpaceServicesFactory;
 import org.dspace.submit.factory.SubmissionServiceFactory;
 import org.w3c.dom.Document;
@@ -99,10 +100,22 @@ public class DCInputsReader {
     public DCInputsReader()
         throws DCInputsReaderException {
         // Load from default file
-        String defsFile = DSpaceServicesFactory.getInstance().getConfigurationService().getProperty("dspace.dir")
-            + File.separator + "config" + File.separator + FORM_DEF_FILE;
+        ConfigurationService config = DSpaceServicesFactory.getInstance().getConfigurationService();
+        String state = config.getProperty("state");
+        String formName;
+        if(state.equalsIgnoreCase("delhi")){
+            formName = config.getProperty("form.name.delhi");
+        } else {
+            formName = config.getProperty("form.name.default");
+        }
 
-        buildInputs(defsFile);
+        String dspaceDir = config.getProperty("dspace.dir");
+
+        String fullPath = dspaceDir + File.separator + "config" + File.separator + formName;
+        // Load from default file
+//        String defsFile = dspaceDir + File.separator + "config" + File.separator + FORM_DEF_FILE;
+
+        buildInputs(fullPath);
     }
 
 

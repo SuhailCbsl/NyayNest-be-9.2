@@ -217,10 +217,21 @@ public class I18nUtil {
      */
     public static String getInputFormsFileName(Locale locale) {
         /** Name of the form definition XML file */
-        final String FORM_DEF_FILE = "submission-forms";
+        ConfigurationService config =
+                DSpaceServicesFactory.getInstance().getConfigurationService();
+
+        String state = config.getProperty("state");
+        String formName;
+        if(state.equalsIgnoreCase("delhi")){
+            formName = config.getProperty("form.name.delhi");
+        } else {
+            formName = config.getProperty("form.name.default");
+        }
+
+        String formBaseName = formName.substring(0, formName.indexOf('.'));
+        String dspaceDir = config.getProperty("dspace.dir");
+        String defsFilename = dspaceDir + File.separator + "config" + File.separator + formBaseName;
         final String FILE_TYPE = ".xml";
-        String defsFilename = DSpaceServicesFactory.getInstance().getConfigurationService().getProperty("dspace.dir")
-            + File.separator + "config" + File.separator + FORM_DEF_FILE;
         String fileName = getFilename(locale, defsFilename, FILE_TYPE);
         return fileName;
     }

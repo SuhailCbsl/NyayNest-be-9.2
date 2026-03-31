@@ -107,7 +107,7 @@
         </step-definition>
 
         <!-- The following set of DescribeStep <step-definition>s all point to forms (of the same name) which are
-             defined in submission-forms.xml -->
+             defined in submission-forms.xml.bc -->
         <step-definition id="traditionalpageone" mandatory="true">
             <heading>submit.progressbar.describe.stepone</heading>
             <processing-class>org.dspace.app.rest.submit.step.DescribeStep</processing-class>
@@ -153,7 +153,37 @@
             <processing-class>org.dspace.app.rest.submit.step.DescribeStep</processing-class>
             <type>submission-form</type>
         </step-definition>
+        <!-- New NyayNest section step-definitions -->
+        <step-definition id="traditional_case_details" mandatory="true">
+            <heading>submit.progressbar.describe.caseDetails</heading>
+            <processing-class>org.dspace.app.rest.submit.step.DescribeStep</processing-class>
+            <type>submission-form</type>
+        </step-definition>
 
+        <step-definition id="traditional_petitioner_details" mandatory="true">
+            <heading>submit.progressbar.describe.petitionerDetails</heading>
+            <processing-class>org.dspace.app.rest.submit.step.DescribeStep</processing-class>
+            <type>submission-form</type>
+        </step-definition>
+
+        <step-definition id="traditional_respondent_details" mandatory="true">
+            <heading>submit.progressbar.describe.respondentDetails</heading>
+            <processing-class>org.dspace.app.rest.submit.step.DescribeStep</processing-class>
+            <type>submission-form</type>
+        </step-definition>
+
+        <step-definition id="traditional_advocate_details" mandatory="true">
+            <heading>submit.progressbar.describe.advocateDetails</heading>
+            <processing-class>org.dspace.app.rest.submit.step.DescribeStep</processing-class>
+            <type>submission-form</type>
+        </step-definition>
+
+        <step-definition id="traditional_judge_details" mandatory="true">
+            <heading>submit.progressbar.describe.judgeDetails</heading>
+            <processing-class>org.dspace.app.rest.submit.step.DescribeStep</processing-class>
+            <type>submission-form</type>
+        </step-definition>
+        <!-- End of step-definition NyayNest -->
         <step-definition id="upload">
             <heading>submit.progressbar.upload</heading>
             <processing-class>org.dspace.app.rest.submit.step.UploadStep</processing-class>
@@ -282,7 +312,11 @@
                  that identifiers.cfg and identifier-service.xml are properly configured. -->
             <!--<step id="identifiers"/>-->
             <!--Step will be to Describe the item. -->
-            <step id="traditionalpageone"/>
+            <step id="traditional_case_details"/>
+            <step id="traditional_petitioner_details"/>
+            <step id="traditional_respondent_details"/>
+            <step id="traditional_advocate_details"/>
+            <step id="traditional_judge_details"/>
             <step id="traditionalpagetwo"/>
 
             <!-- Uncomment this step to allow the user to embargo or access restrict the entire item -->
