@@ -1,0 +1,4828 @@
+<input-forms>
+	<!--  The form-definitions map lays out the detailed definition of all the  -->
+	<!--  submission forms. Each separate form set has a unique name as an      -->
+	<!--  attribute. This name matches one of the names in the form-map. One    -->
+	<!--  named form set has the name "traditional"; as this name suggests,     -->
+	<!--  it is the old style and is also the default, which gets used when     -->
+	<!--  the specified collection has no correspondingly-named form set.       -->
+	<!--                                                                        -->
+	<!--  Each form set contains an ordered set of pages; each page defines     -->
+	<!--  one submission metadata entry screen. Each page has an ordered list   -->
+	<!--  of field definitions, Each field definition corresponds to one        -->
+	<!--  metadata entry (a so-called row), which has a DC element name, a      -->
+	<!--  displayed label, a text string prompt which is called a hint, and     -->
+	<!--  an input-type. Each field also may hold optional elements: DC         -->
+	<!--  qualifier name, a repeatable flag, and a text string whose presence   -->
+	<!--  serves as a 'this field is required' flag.                            -->
+	<form-definitions>
+		<!--  Form used for entering in Bitstream/File metadata after uploading a file  -->
+		<form name="bitstream-metadata">
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>title</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Title</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the name of the file.</hint>
+					<required>You must enter a name for this file</required>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>description</dc-element>
+					<repeatable>true</repeatable>
+					<label>Description</label>
+					<input-type>textarea</input-type>
+					<hint>Enter a description for the file</hint>
+					<required/>
+				</field>
+			</row>
+		</form>
+		<!--  Form which defines the first page/section of the "traditional" DSpace submission process,
+             often used when depositing normal Items (i.e. Items which are not Entities).  -->
+		<form name="traditionalpageone">
+			<!--  Metadata fields for NyayNest  -->
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>CaseNature</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Case Nature</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>CaseTypeName</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Case Type Name</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required>You must enter case type name.</required>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>CaseTypeCode</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Case Type Code</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required>You must enter case type code.</required>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>title</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Case No.</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required>You must enter case no.</required>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>CaseYear</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Case Year</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>CNRNo</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>CNR No.</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required>You must enter CNR no.</required>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>CaseStatus</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Case Status</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>RegistrationNo</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Registration No.</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>CaseState</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Case State</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>RegistrationDate</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Registration Date</label>
+					<input-type>date</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>CaseDistrict</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Case District</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>CaseTaluka</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Case Taluka</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>EstablishmentCode</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Establishment Code</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>EstablishmentName</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Establishment Name</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>VirtualCourtCNR</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Virtual Court CNR</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>CaseFilingNo</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Case Filing No.</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>ConnectedCases</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Connected Cases</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>LowerCourtCNR</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Lower Court CNR</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>FilingNo</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Filing No.</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>FilingType</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Filing Type</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>FilingYear</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Filing Year</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>Petitioner</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Petitioner</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required>You must enter petitioner name.</required>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>FilingDate</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Filing Date</label>
+					<input-type>date</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>PetitionerID</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Petitioner ID</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>PetitionerGender</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Petitioner Gender</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>PetitionerOrganization</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Petitioner Organization</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>PetitionerSerialNo</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Petitioner Serial No.</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>PetitionerEmailID</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Petitioner Email ID</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>PetitionerContact</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Petitioner Contact</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>PetitionerAddress</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Petitioner Address</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>PetitionerHindi</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Petitioner Hindi</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>Respondent</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Respondent</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>RespondentID</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Respondent ID</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>RespondentGender</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Respondent Gender</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>RespondentOrganization</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Respondent Organization</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>RespondentSerialNo</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Respondent Serial No.</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>RespondentEmailID</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Respondent Email ID</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>RespondentContact</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Respondent Contact</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>RespondentAddress</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Respondent Address</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>RespondentHindi</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Respondent Hindi</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>AdvocateTypeOfPetitioner</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Advocate Type of Petitioner</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>AdvocateNameofPetitioner</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Advocate Name of Petitioner</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>AdvocateSerialNoofPetitioner</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Advocate Serial No. of Petitioner</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>AdvocateBarNoofPetitioner</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Advocate Bar No. Of Petitioner</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>AdvocateTypeofRespondent</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Advocate Type Of Respondent</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>AdvocateNameofRespondent</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Advocate Name Of Respondent</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>AdvocateSerialNoofRespondent</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Advocate Serial No. Of Respondent</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>AdvocateBarNoofRespondent</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Advocate Bar No. Of Respondent</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>ActName</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Act Name</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>SectionName</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Section Name</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>CaseRule</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Case Rule</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>CaseRegulation</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Case Regulation</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>JOCode</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>JO Code</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>JudgeName</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Judge Name</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>JudgeNameHindi</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Judge Name Hindi</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>Judgement</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Judgement</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>Purpose</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Purpose</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>SubPurpose</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Sub-Purpose</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>DisposalType</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Disposal Type</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>DateofDisposal</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Date Of Disposal</label>
+					<input-type>date</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>OrderJudgementDate</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Order Judgement Date</label>
+					<input-type>date</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>DateofDocument</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Date Of Document</label>
+					<input-type>date</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>OrderType</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Order Type</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>DocumentNo</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Document No.</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>FIRDistrict</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>FIR District</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>FIRNo</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>FIR No.</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>FIRYear</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>FIR Year</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>FIRTehsilTaluka</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>FIR Tehsil Taluka</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>FIRDate</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>FIR Date</label>
+					<input-type>date</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>ChargesheetNoDate</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Chargesheet No. Date</label>
+					<input-type>date</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>PoliceStationCode</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Police Station Code</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>PoliceStationName</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Police Station Name</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>digitizationStatus</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Digitization Status</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>digitizationDate</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Digitization Date</label>
+					<input-type>date</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+		</form>
+		<!--  Form which defines the second page/section of the "traditional" DSpace submission process,
+             often used when depositing normal Items.  -->
+		<form name="traditionalpagetwo">
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>ActName</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Act Name</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>SectionName</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Section Name</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>CaseRule</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Case Rule</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>CaseRegulation</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Case Regulation</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>DateofDocument</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Document Date</label>
+					<input-type>date</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>DocumentNo</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Document No.</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>DocType</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Document Type</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>NoofPages</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>No. Of Pages</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>OldCaseID</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Old Case ID</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>OldCaseNo</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Old Case No.</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>OldCNRNo</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Old CNR No.</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>ConnectedCaseType</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Connected Case Type</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>ConnectedCaseYear</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Connected Case Year</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>ConnectedCaseNo</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Connected Case No.</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>FIRDistrict</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>FIR District</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>FIRNo</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>FIR No.</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>FIRDate</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>FIR Date</label>
+					<input-type>date</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>FIRYear</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>FIR Year</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>FIRTehsilTaluka</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>FIR Tehsil/Taluka</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>PoliceStationCode</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Police Station Code</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>PoliceStationName</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Police Station Name</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>ChargesheetNoDate</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Chargesheet Date</label>
+					<input-type>date</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>digitizationDate</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Digitization Date</label>
+					<input-type>date</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>digitizationStatus</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Digitization Status</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>charcount</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Character Count</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>acceptremark</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Remark</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				
+			<!--	<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>pages</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Pages</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			-->	
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>Path</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Path</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				
+			</row>
+			<row>
+				
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>Filename</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Filename</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>BoxBarcode</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Box Barcode</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>BastaNo</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Basta No.</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>LotNo</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Lot No.</label>
+					<input-type>onebox</input-type>
+					<style>col-sm-4</style>
+					<required>You must enter Lot No.</required>
+					<hint/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>FileBarcode</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>File Barcode</label>
+					<input-type>onebox</input-type>
+					<style>col-sm-4</style>
+					<required>You must enter file barcode</required>
+					<hint/>
+				</field>
+			</row>
+		</form>
+		<!--  Form which defines the *first* metadata page/section for depositing Publication Entities.
+             Since Publication Entities are very similar to normal Items, this is nearly identical to the
+             'traditionalpageone' form. The only difference is the Author field can be used to link the
+             Publication Entity to a Person Entity.  -->
+		<form name="publicationStep">
+			<row>
+				<relation-field>
+					<relationship-type>isAuthorOfPublication</relationship-type>
+					<search-configuration>person</search-configuration>
+					<repeatable>true</repeatable>
+					<label>Author</label>
+					<hint>Enter the author's name (Family name, Given names).</hint>
+					<linked-metadata-field>
+						<dc-schema>dc</dc-schema>
+						<dc-element>contributor</dc-element>
+						<dc-qualifier>author</dc-qualifier>
+						<input-type>onebox</input-type>
+					</linked-metadata-field>
+					<externalsources>orcid</externalsources>
+					<required/>
+					<!--  You may choose to validate author names via a Regular Expression if it's appropriate for
+                         your institution. The below regex requires a comma to be present in the author field.
+                         However, this is disabled by default to support organizations as authors, etc.  -->
+					<!-- <regex>\w+(,)+\w+</regex> -->
+				</relation-field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>title</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Title</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the main title of the item.</hint>
+					<required>You must enter a main title for this item.</required>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>title</dc-element>
+					<dc-qualifier>alternative</dc-qualifier>
+					<repeatable>true</repeatable>
+					<label>Other Titles</label>
+					<input-type>onebox</input-type>
+					<hint>If the item has any alternative titles, please enter them here.</hint>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>date</dc-element>
+					<dc-qualifier>issued</dc-qualifier>
+					<repeatable>false</repeatable>
+					<label>Date of Issue</label>
+					<style>col-sm-4</style>
+					<input-type>date</input-type>
+					<hint>Please give the date of previous publication or public distribution. You can leave out the day and/or month if they aren't applicable. </hint>
+					<required>You must enter at least the year.</required>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>publisher</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Publisher</label>
+					<style>col-sm-8</style>
+					<input-type>onebox</input-type>
+					<hint>Enter the name of the publisher of the previously issued instance of this item.</hint>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>identifier</dc-element>
+					<dc-qualifier>citation</dc-qualifier>
+					<repeatable>false</repeatable>
+					<label>Citation</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the standard citation for the previously issued instance of this item.</hint>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>relation</dc-element>
+					<dc-qualifier>ispartofseries</dc-qualifier>
+					<repeatable>true</repeatable>
+					<label>Series/Report No.</label>
+					<input-type>series</input-type>
+					<hint>Enter the series and number assigned to this item by your community.</hint>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>identifier</dc-element>
+					<dc-qualifier/>
+					<!--  An input-type of qualdrop_value MUST be marked as repeatable  -->
+					<repeatable>true</repeatable>
+					<label>Identifiers</label>
+					<input-type value-pairs-name="common_identifiers">qualdrop_value</input-type>
+					<hint>If the item has any identification numbers or codes associated with it, please enter the types and the actual numbers or codes. </hint>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>type</dc-element>
+					<dc-qualifier/>
+					<repeatable>true</repeatable>
+					<label>Type</label>
+					<input-type value-pairs-name="common_types">dropdown</input-type>
+					<hint>Select the type(s) of content of the item. To select more than one value in the list, you may have to hold down the "CTRL" or "Shift" key. </hint>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>language</dc-element>
+					<dc-qualifier>iso</dc-qualifier>
+					<repeatable>false</repeatable>
+					<label>Language</label>
+					<input-type value-pairs-name="common_iso_languages">dropdown</input-type>
+					<hint>Select the language of the main content of the item. If the language does not appear in the list, please select 'Other'. If the content does not really have a language (for example, if it is a dataset or an image) please select 'N/A'. </hint>
+					<required/>
+				</field>
+			</row>
+		</form>
+		<!--  Form which defines the metadata page/section for depositing Person Entities  -->
+		<form name="personStep">
+			<row>
+				<relation-field>
+					<relationship-type>isPublicationOfAuthor</relationship-type>
+					<search-configuration>publication</search-configuration>
+					<label>Publication</label>
+					<hint>import a publicaton</hint>
+					<externalsources>pubmed</externalsources>
+				</relation-field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>person</dc-schema>
+					<dc-element>familyName</dc-element>
+					<label>Last name</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the last name of the person</hint>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>person</dc-schema>
+					<dc-element>givenName</dc-element>
+					<label>First name</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the first name of the person</hint>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>person</dc-schema>
+					<dc-element>email</dc-element>
+					<label>Email</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the email of the person</hint>
+				</field>
+			</row>
+			<!--      <row> -->
+			<!--      <field> -->
+			<!--        <dc-schema>person</dc-schema> -->
+			<!--        <dc-element>identifier</dc-element> -->
+			<!--        <dc-qualifier>orcid</dc-qualifier> -->
+			<!--        <label>Orcid</label> -->
+			<!--        <input-type>onebox</input-type> -->
+			<!--        <hint>Enter the orcid of the person</hint> -->
+			<!--      </field> -->
+			<!--      </row> -->
+			<row>
+				<field>
+					<dc-schema>person</dc-schema>
+					<dc-element>birthDate</dc-element>
+					<label>Birth date</label>
+					<input-type>date</input-type>
+					<hint>Enter the birth date of the person</hint>
+				</field>
+			</row>
+			<!--             <row> -->
+			<!--                 <field> -->
+			<!--                     <dc-schema>person</dc-schema> -->
+			<!--                     <dc-element>identifier</dc-element> -->
+			<!--                     <dc-qualifier>staffid</dc-qualifier> -->
+			<!--                     <label>Staff ID</label> -->
+			<!--                     <input-type>onebox</input-type> -->
+			<!--                     <hint>Enter the staff id of the person</hint> -->
+			<!--                 </field> -->
+			<!--             </row> -->
+			<row>
+				<field>
+					<dc-schema>person</dc-schema>
+					<dc-element>jobTitle</dc-element>
+					<label>Job title</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the job title of the person</hint>
+				</field>
+			</row>
+		</form>
+		<!--  Form which defines the metadata page/section for depositing Project Entities  -->
+		<form name="projectStep">
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>title</dc-element>
+					<label>Name</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the name of the project</hint>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>identifier</dc-element>
+					<label>ID</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the id of the project</hint>
+				</field>
+			</row>
+			<!--             <row> -->
+			<!--                 <field> -->
+			<!--                     <dc-schema>project</dc-schema> -->
+			<!--                     <dc-element>identifier</dc-element> -->
+			<!--                     <dc-qualifier>status</dc-qualifier> -->
+			<!--                     <label>Status</label> -->
+			<!--                     <input-type value-pairs-name="project_status">dropdown</input-type> -->
+			<!--                     <hint>Enter the status of the project</hint> -->
+			<!--                 </field> -->
+			<!--             </row> -->
+			<!--             <row> -->
+			<!--                 <field> -->
+			<!--                     <dc-schema>project</dc-schema> -->
+			<!--                     <dc-element>identifier</dc-element> -->
+			<!--                     <dc-qualifier>startdate</dc-qualifier> -->
+			<!--                     <label>Start date</label> -->
+			<!--                     <input-type>date</input-type> -->
+			<!--                     <hint>Enter the start date of the project</hint> -->
+			<!--                 </field> -->
+			<!--             </row> -->
+			<!--             <row> -->
+			<!--                 <field> -->
+			<!--                     <dc-schema>project</dc-schema> -->
+			<!--                     <dc-element>identifier</dc-element> -->
+			<!--                     <dc-qualifier>expectedcompletion</dc-qualifier> -->
+			<!--                     <label>Expected Completion</label> -->
+			<!--                     <input-type>date</input-type> -->
+			<!--                     <hint>Enter the expected completion date of the project</hint> -->
+			<!--                 </field> -->
+			<!--             </row> -->
+			<row>
+				<relation-field>
+					<relationship-type>isPersonOfProject</relationship-type>
+					<search-configuration>person</search-configuration>
+					<repeatable>true</repeatable>
+					<label>Investigator</label>
+					<hint>Enter the investigator's name (Family name, Given names).</hint>
+					<linked-metadata-field>
+						<dc-schema>project</dc-schema>
+						<dc-element>investigator</dc-element>
+						<input-type>onebox</input-type>
+					</linked-metadata-field>
+					<externalsources>orcid</externalsources>
+				</relation-field>
+			</row>
+			<row>
+				<relation-field>
+					<relationship-type>isProjectOfOrgUnit</relationship-type>
+					<search-configuration>orgunit</search-configuration>
+					<repeatable>false</repeatable>
+					<label>Organization</label>
+					<hint>Enter the organization's name</hint>
+					<linked-metadata-field>
+						<dc-schema>project</dc-schema>
+						<dc-element>funder</dc-element>
+						<dc-qualifier>name</dc-qualifier>
+						<input-type>onebox</input-type>
+					</linked-metadata-field>
+					<externalsources/>
+				</relation-field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>subject</dc-element>
+					<repeatable>true</repeatable>
+					<label>Keywords</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the keywords of the project</hint>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>project</dc-schema>
+					<dc-element>startDate</dc-element>
+					<label>Start date</label>
+					<input-type>date</input-type>
+					<hint>Enter the start date of the project</hint>
+				</field>
+				<field>
+					<dc-schema>project</dc-schema>
+					<dc-element>endDate</dc-element>
+					<label>End date</label>
+					<input-type>date</input-type>
+					<hint>Enter the end date of the project</hint>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>project</dc-schema>
+					<dc-element>amount</dc-element>
+					<label>Amount</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the amount of the project</hint>
+				</field>
+				<field>
+					<dc-schema>project</dc-schema>
+					<dc-element>amount</dc-element>
+					<dc-qualifier>currency</dc-qualifier>
+					<label>Amount currency</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the amount currency of the project</hint>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>description</dc-element>
+					<label>Description</label>
+					<input-type>textarea</input-type>
+					<hint>Enter the description of the project</hint>
+				</field>
+			</row>
+		</form>
+		<!--  Form which defines the metadata page/section for depositing OrgUnit Entities  -->
+		<form name="orgUnitStep">
+			<row>
+				<field>
+					<dc-schema>organization</dc-schema>
+					<dc-element>legalName</dc-element>
+					<label>Name</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the name of the orgunit</hint>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>identifier</dc-element>
+					<label>ID</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the id of the orgunit</hint>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>organization</dc-schema>
+					<dc-element>foundingDate</dc-element>
+					<label>Date established</label>
+					<input-type>date</input-type>
+					<hint>Enter the established date of the orgunit</hint>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>organization</dc-schema>
+					<dc-element>address</dc-element>
+					<dc-qualifier>addressLocality</dc-qualifier>
+					<label>City</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the city of the orgunit</hint>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>organization</dc-schema>
+					<dc-element>address</dc-element>
+					<dc-qualifier>addressCountry</dc-qualifier>
+					<label>Country</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the country of the orgunit</hint>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>description</dc-element>
+					<label>Description</label>
+					<input-type>textarea</input-type>
+					<hint>Enter the description of the orgunit</hint>
+				</field>
+			</row>
+		</form>
+		<!--  Form which defines the metadata page/section for depositing Journal Entities  -->
+		<form name="journalStep">
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>title</dc-element>
+					<label>Name</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the name of the journal</hint>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>creativework</dc-schema>
+					<dc-element>editor</dc-element>
+					<label>Editor</label>
+					<input-type>name</input-type>
+					<hint>Enter the editor of the journal</hint>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>creativeworkseries</dc-schema>
+					<dc-element>issn</dc-element>
+					<label>ISSN</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the issn of the journal</hint>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>description</dc-element>
+					<label>Description</label>
+					<input-type>textarea</input-type>
+					<hint>Enter the description of the journal</hint>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>creativework</dc-schema>
+					<dc-element>publisher</dc-element>
+					<label>Publisher</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the publisher of the journal</hint>
+				</field>
+			</row>
+		</form>
+		<!--  Form which defines the metadata page/section for depositing JournalVolume Entities  -->
+		<form name="journalVolumeStep">
+			<row>
+				<relation-field>
+					<relationship-type>isJournalOfVolume</relationship-type>
+					<search-configuration>journal</search-configuration>
+					<!--  example of filtering Discovery search for Journal by a specific publisher  -->
+					<!-- <filter>creativework.publisher:somepublishername</filter> -->
+					<label>Journal</label>
+					<hint>Select the journal related to this volume.</hint>
+					<externalsources>sherpaJournal</externalsources>
+				</relation-field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>title</dc-element>
+					<label>Name</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the name of the journal volume</hint>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>publicationvolume</dc-schema>
+					<dc-element>volumeNumber</dc-element>
+					<label>Volume</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the volume of the journal volume</hint>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>creativework</dc-schema>
+					<dc-element>datePublished</dc-element>
+					<label>Issue date</label>
+					<input-type>date</input-type>
+					<hint>Enter the issue date of the journal volume</hint>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>description</dc-element>
+					<label>Description</label>
+					<input-type>textarea</input-type>
+					<hint>Enter the description of the journal volume</hint>
+				</field>
+			</row>
+		</form>
+		<!--  Form which defines the metadata page/section for depositing JournalIssue Entities  -->
+		<form name="journalIssueStep">
+			<row>
+				<relation-field>
+					<relationship-type>isJournalVolumeOfIssue</relationship-type>
+					<search-configuration>journalvolume</search-configuration>
+					<label>Journal Volume</label>
+					<hint>Select the journal volume related to this issue.</hint>
+				</relation-field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>title</dc-element>
+					<label>Name</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the name of the journal issue</hint>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>publicationissue</dc-schema>
+					<dc-element>issueNumber</dc-element>
+					<label>Number</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the number of the journal issue</hint>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>creativework</dc-schema>
+					<dc-element>datePublished</dc-element>
+					<label>Issue date</label>
+					<input-type>date</input-type>
+					<hint>Enter the issue date of the journal issue</hint>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>description</dc-element>
+					<label>Description</label>
+					<input-type>textarea</input-type>
+					<hint>Enter the description of the journal issue</hint>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>creativework</dc-schema>
+					<dc-element>keywords</dc-element>
+					<repeatable>true</repeatable>
+					<label>Keywords</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the keywords of the journal issue</hint>
+				</field>
+			</row>
+		</form>
+		<!--  OpenAIRE specific forms  -->
+		<form name="openairePublicationPageoneForm">
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>title</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Title</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the main title of the item.</hint>
+					<required>You must enter a main title for this item.</required>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>title</dc-element>
+					<dc-qualifier>alternative</dc-qualifier>
+					<repeatable>true</repeatable>
+					<label>Other Titles</label>
+					<input-type>onebox</input-type>
+					<hint>If the item has any alternative titles, please enter them here.</hint>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<relation-field>
+					<relationship-type>isAuthorOfPublication</relationship-type>
+					<search-configuration>personOrOrgunit</search-configuration>
+					<repeatable>true</repeatable>
+					<name-variants>true</name-variants>
+					<label>Author</label>
+					<hint>Add an author</hint>
+					<linked-metadata-field>
+						<dc-schema>dc</dc-schema>
+						<dc-element>contributor</dc-element>
+						<dc-qualifier>author</dc-qualifier>
+						<input-type>name</input-type>
+					</linked-metadata-field>
+					<externalsources>orcid</externalsources>
+					<required>At least one author (plain text or relationship) is required</required>
+				</relation-field>
+			</row>
+			<!--  EDITOR and Other contributors - Add new field here  -->
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>date</dc-element>
+					<dc-qualifier>issued</dc-qualifier>
+					<repeatable>false</repeatable>
+					<label>Date of Issue</label>
+					<style>col-sm-4</style>
+					<input-type>date</input-type>
+					<hint>Please give the date of previous publication or public distribution. You can leave out the day and/or month if they aren't applicable. </hint>
+					<required>You must enter at least the year.</required>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>publisher</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Publisher</label>
+					<style>col-sm-8</style>
+					<input-type>onebox</input-type>
+					<hint>Enter the name of the publisher of the previously issued instance of this item.</hint>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>relation</dc-element>
+					<dc-qualifier>hasversion</dc-qualifier>
+					<repeatable>false</repeatable>
+					<label>Editor Version</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the URL/DOI of the editor version of this item.</hint>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dcterms</dc-schema>
+					<dc-element>references</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Related Dataset</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the URL/DOI of the related Dataset.</hint>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>identifier</dc-element>
+					<dc-qualifier/>
+					<!--  An input-type of qualdrop_value MUST be marked as repeatable  -->
+					<repeatable>true</repeatable>
+					<label>Identifiers</label>
+					<input-type value-pairs-name="common_identifiers">qualdrop_value</input-type>
+					<hint>If the item has any identification numbers or codes associated with it, please enter the types and the actual numbers or codes. </hint>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>oaire</dc-schema>
+					<dc-element>citation</dc-element>
+					<dc-qualifier>title</dc-qualifier>
+					<repeatable>false</repeatable>
+					<label>Title of Journal, Book or Event</label>
+					<input-type>onebox</input-type>
+					<hint>Include the name of related item like the journal name, book title or event name.</hint>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>oaire</dc-schema>
+					<dc-element>citation</dc-element>
+					<dc-qualifier>conferencePlace</dc-qualifier>
+					<repeatable>false</repeatable>
+					<label>Event/Conference Place</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the event location.</hint>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>oaire</dc-schema>
+					<dc-element>citation</dc-element>
+					<dc-qualifier>conferenceDate</dc-qualifier>
+					<repeatable>false</repeatable>
+					<label>Conference Date</label>
+					<input-type>date</input-type>
+					<hint>Enter the date of the event.</hint>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>oaire</dc-schema>
+					<dc-element>citation</dc-element>
+					<dc-qualifier>volume</dc-qualifier>
+					<repeatable>false</repeatable>
+					<label>Volume</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the volume of the item.</hint>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>oaire</dc-schema>
+					<dc-element>citation</dc-element>
+					<dc-qualifier>issue</dc-qualifier>
+					<repeatable>false</repeatable>
+					<label>Issue</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the issue number of the item.</hint>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>oaire</dc-schema>
+					<dc-element>citation</dc-element>
+					<dc-qualifier>edition</dc-qualifier>
+					<repeatable>false</repeatable>
+					<label>Edition</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the edition of the item.</hint>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>oaire</dc-schema>
+					<dc-element>citation</dc-element>
+					<dc-qualifier>startPage</dc-qualifier>
+					<repeatable>false</repeatable>
+					<label>First Page</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the start page number.</hint>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>oaire</dc-schema>
+					<dc-element>citation</dc-element>
+					<dc-qualifier>endPage</dc-qualifier>
+					<repeatable>false</repeatable>
+					<label>Last Page</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the last page number.</hint>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>type</dc-element>
+					<dc-qualifier/>
+					<repeatable>true</repeatable>
+					<label>Type</label>
+					<input-type value-pairs-name="openaire_types">dropdown</input-type>
+					<hint>Select the type(s) of content of the item. To select more than one value in the list, you may have to hold down the "CTRL" or "Shift" key. </hint>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>oaire</dc-schema>
+					<dc-element>version</dc-element>
+					<repeatable>false</repeatable>
+					<label>Resource Version</label>
+					<input-type value-pairs-name="openaire_version_types">dropdown</input-type>
+					<hint>Select the version of the resource. If the resource does not have that information, please select "Not Applicable (or Unknown)".</hint>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>language</dc-element>
+					<dc-qualifier>iso</dc-qualifier>
+					<repeatable>false</repeatable>
+					<label>Language</label>
+					<input-type value-pairs-name="common_iso_languages">dropdown</input-type>
+					<hint>Select the language of the main content of the item. If the language does not appear in the list, please select 'Other'. If the content does not really have a language (for example, if it is a dataset or an image) please select 'N/A'. </hint>
+					<required/>
+				</field>
+			</row>
+		</form>
+		<form name="openairePublicationPagetwoForm">
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>subject</dc-element>
+					<dc-qualifier/>
+					<!--  An input-type of tag MUST be marked as repeatable  -->
+					<repeatable>true</repeatable>
+					<label>Subject Keywords</label>
+					<input-type>tag</input-type>
+					<hint>Enter appropriate subject keywords or phrases.</hint>
+					<required/>
+					<vocabulary>srsc</vocabulary>
+				</field>
+			</row>
+			<!--  Additional Subject with specific taxonomy (like mesh, fos, ...)  -->
+			<!--  example for FOS  -->
+			<!--  <row><field><dc-schema>datacite</dc-schema><dc-element>subject</dc-element><dc-qualifier>fos</dc-qualifier><repeatable>true</repeatable><label>Subject Keywords (Fields of Science and Technology - OECD) </label><input-type>tag</input-type><hint>Enter appropriate subject keywords or phrases based on the defined taxonomy.</hint><required></required><vocabulary>fos</vocabulary></field></row>  -->
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>description</dc-element>
+					<dc-qualifier>abstract</dc-qualifier>
+					<repeatable>false</repeatable>
+					<label>Abstract</label>
+					<input-type>textarea</input-type>
+					<hint>Enter the abstract of the item.</hint>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<relation-field>
+					<relationship-type>isProjectOfPublication</relationship-type>
+					<search-configuration>project</search-configuration>
+					<repeatable>true</repeatable>
+					<name-variants>false</name-variants>
+					<label>Funding</label>
+					<hint>Add a related Funding</hint>
+					<linked-metadata-field>
+						<dc-schema>dc</dc-schema>
+						<dc-element>relation</dc-element>
+						<input-type>onebox</input-type>
+					</linked-metadata-field>
+					<externalsources>openAIREFunding</externalsources>
+					<required/>
+				</relation-field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>rights</dc-element>
+					<repeatable>false</repeatable>
+					<label>Access Type</label>
+					<input-type value-pairs-name="openaire_rights">dropdown</input-type>
+					<hint>Select the access type of the resource.</hint>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>oaire</dc-schema>
+					<dc-element>license</dc-element>
+					<dc-qualifier>condition</dc-qualifier>
+					<repeatable>false</repeatable>
+					<label>License</label>
+					<input-type value-pairs-name="openaire_license_types">dropdown</input-type>
+					<hint>Select the license of the resource.</hint>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>coverage</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Coverage</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the coverage of the item, like a period, jurisdiction, etc.</hint>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>description</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Description</label>
+					<input-type>textarea</input-type>
+					<hint>Enter any other description or comments in this box.</hint>
+					<required/>
+				</field>
+			</row>
+		</form>
+		<form name="openairePersonForm">
+			<row>
+				<field>
+					<dc-schema>person</dc-schema>
+					<dc-element>familyName</dc-element>
+					<label>Last name</label>
+					<input-type>onebox</input-type>
+					<hint>Enter surname or last name of the person</hint>
+				</field>
+				<field>
+					<dc-schema>person</dc-schema>
+					<dc-element>givenName</dc-element>
+					<label>First name</label>
+					<input-type>onebox</input-type>
+					<hint>Enter personal or first name of the person</hint>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>title</dc-element>
+					<label>Author preferred name</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the preferred name of this person regarding the authorship</hint>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>person</dc-schema>
+					<dc-element>affiliation</dc-element>
+					<dc-qualifier>name</dc-qualifier>
+					<repeatable>true</repeatable>
+					<label>Affiliation Name</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the organizational or institutional affiliation of this person</hint>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>person</dc-schema>
+					<dc-element>email</dc-element>
+					<repeatable>true</repeatable>
+					<label>Email</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the email of the person</hint>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>person</dc-schema>
+					<dc-element>identifier</dc-element>
+					<dc-qualifier/>
+					<!--  An input-type of qualdrop_value MUST be marked as repeatable  -->
+					<repeatable>true</repeatable>
+					<label>Author identifier</label>
+					<input-type value-pairs-name="openaire_author_identifier_types">qualdrop_value</input-type>
+					<hint>If the author has any identifiers or codes associated with it, please enter the types and the actual numbers or codes. </hint>
+					<required/>
+				</field>
+			</row>
+		</form>
+		<form name="openaireProjectForm">
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>title</dc-element>
+					<label>Project name</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the name of the project</hint>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>identifier</dc-element>
+					<dc-qualifier>uri</dc-qualifier>
+					<label>Project web page</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the URL of the project webpage</hint>
+				</field>
+			</row>
+			<row>
+				<relation-field>
+					<relationship-type>isFundingAgencyOfProject</relationship-type>
+					<search-configuration>openAIREFundingAgency</search-configuration>
+					<repeatable>false</repeatable>
+					<name-variants>false</name-variants>
+					<label>Funding Agency</label>
+					<hint>Add a Funding Agency</hint>
+					<linked-metadata-field>
+						<dc-schema>project</dc-schema>
+						<dc-element>funder</dc-element>
+						<dc-qualifier>name</dc-qualifier>
+						<input-type>onebox</input-type>
+					</linked-metadata-field>
+					<externalsources/>
+					<required>One funding agency is required</required>
+				</relation-field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>oaire</dc-schema>
+					<dc-element>fundingStream</dc-element>
+					<label>Name of the Funding Stream</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the name of the funding stream of the project</hint>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>identifier</dc-element>
+					<label>Award number</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the identifier of the project</hint>
+				</field>
+			</row>
+		</form>
+		<form name="openaireOrganizationForm">
+			<row>
+				<field>
+					<dc-schema>organization</dc-schema>
+					<dc-element>legalName</dc-element>
+					<label>Organization name</label>
+					<input-type>onebox</input-type>
+					<hint>Enter the name of the orgunit or organization</hint>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>organization</dc-schema>
+					<dc-element>identifier</dc-element>
+					<dc-qualifier/>
+					<!--  An input-type of qualdrop_value MUST be marked as repeatable  -->
+					<repeatable>true</repeatable>
+					<label>Organization identifier</label>
+					<input-type value-pairs-name="openaire_organization_identifier_types">qualdrop_value</input-type>
+					<hint>If the organization has any identifiers or codes associated with it, please enter the types and the actual numbers or codes. </hint>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>type</dc-element>
+					<label>Organization type</label>
+					<input-type value-pairs-name="openaire_organization_types">dropdown</input-type>
+					<hint>Choose the attributes of the Organization</hint>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>description</dc-element>
+					<label>Description</label>
+					<input-type>textarea</input-type>
+					<hint>Enter the description of the orgunit</hint>
+				</field>
+			</row>
+		</form>
+		<!-- ========================================================= -->
+		<!-- NyayNest Custom Forms -->
+		<!-- ========================================================= -->
+		<!-- Case Details -->
+		<form name="traditional_case_details">
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>CNRNo</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>CNR No.</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required>You must enter CNR no.</required>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>EstablishmentCode</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Establishment Code</label>
+					<input-type value-pairs-name="establishment_code_values">dropdown</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>EstablishmentName</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Establishment Name</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>CaseState</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Case State</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>CaseDistrict</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Case District</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>CaseYear</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Case Year</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>CaseStatus</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Case Status</label>
+					<input-type value-pairs-name="case_status_values">dropdown</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>RegistrationNo</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Registration No.</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>RegistrationDate</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Registration Date</label>
+					<input-type>date</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>CaseTypeCode</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Case Type Code</label>
+					<input-type value-pairs-name="case_type_code_values">dropdown</input-type>
+					<hint/>
+					<required>You must enter case type code.</required>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>CaseTypeName</dc-element>
+					<dc-qualifier></dc-qualifier>
+					<repeatable>false</repeatable>
+					<label>Case Type</label>
+					<input-type>onebox</input-type>
+					<required>You must enter case type name.</required>
+					<hint/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>CaseTaluka</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Case Taluka</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>CaseNature</dc-element>
+					<dc-qualifier></dc-qualifier>
+					<repeatable>false</repeatable>
+					<label>Case Nature</label>
+					<input-type value-pairs-name="case_nature_values">dropdown</input-type>
+					<hint/>
+					<required></required>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>VirtualCourtCNR</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Virtual Court CNR</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>title</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Case No.</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required>You must enter case no.</required>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>LowerCourtCNR</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Lower Court CNR</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>CaseFilingNo</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Case Filing No.</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>ConnectedCases</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Connected Cases</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>FilingNo</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Filing No.</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>FilingType</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Filing Type</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>FilingYear</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Filing Year</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>FilingDate</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Filing Date</label>
+					<style>col-sm-4</style>
+					<input-type>date</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+		</form>
+		<!-- Petitioner Details -->
+		<form name="traditional_petitioner_details">
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>Petitioner</dc-element>
+					<dc-qualifier></dc-qualifier>
+					<repeatable>false</repeatable>
+					<label>Petitioner Name</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required>You must enter petitioner name.</required>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>PetitionerHindi</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Petitioner Name (Hindi)</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>PetitionerID</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Petitioner ID</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>PetitionerGender</dc-element>
+					<dc-qualifier></dc-qualifier>
+					<repeatable>false</repeatable>
+					<label>Gender</label>
+					<input-type value-pairs-name="petitioner_gender_values">dropdown</input-type>
+					<hint/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>PetitionerOrganization</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Petitioner Organization</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>PetitionerSerialNo</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Petitioner Serial No.</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>PetitionerEmailID</dc-element>
+					<dc-qualifier></dc-qualifier>
+					<repeatable>false</repeatable>
+					<placeholder>Petitioner Email Id</placeholder>
+					<label>Email ID</label>
+					<input-type>onebox</input-type>
+					<hint/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>PetitionerContact</dc-element>
+					<dc-qualifier></dc-qualifier>
+					<repeatable>false</repeatable>
+					<label>Contact Number</label>
+					<input-type>onebox</input-type>
+					<hint/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>PetitionerAddress</dc-element>
+					<dc-qualifier></dc-qualifier>
+					<repeatable>false</repeatable>
+					<label>Address</label>
+					<input-type>onebox</input-type>
+					<hint/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>PetAddHindi</dc-element>
+					<dc-qualifier></dc-qualifier>
+					<repeatable>false</repeatable>
+					<label>Petitioner Address Hindi</label>
+					<input-type>onebox</input-type>
+					<hint/>
+				</field>
+			</row>
+		</form>
+		<!-- Respondent Details -->
+		<form name="traditional_respondent_details">
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>Respondent</dc-element>
+					<dc-qualifier></dc-qualifier>
+					<repeatable>false</repeatable>
+					<label>Respondent Name</label>
+					<input-type>onebox</input-type>
+					<required>You must enter respondent name</required>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>RespondentHindi</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Respondent Name (Hindi)</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>RespondentID</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Respondent ID</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>RespondentGender</dc-element>
+					<dc-qualifier></dc-qualifier>
+					<repeatable>false</repeatable>
+					<label>Respondent Gender</label>
+					<input-type value-pairs-name="respondent_gender_values">dropdown</input-type>
+					<hint/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>RespondentOrganization</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Respondent Organization</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>RespondentSerialNo</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Respondent Serial No.</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>RespondentEmailID</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Respondent Email ID</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>RespondentContact</dc-element>
+					<dc-qualifier></dc-qualifier>
+					<repeatable>false</repeatable>
+					<label>Contact Number</label>
+					<input-type>onebox</input-type>
+					<hint/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>RespondentAddress</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Respondent Address</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>ResAddHindi</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Respondent Address Hindi</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+		</form>
+		<!-- Advocate Details -->
+		<form name="traditional_advocate_details">
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>AdvocateTypeOfPetitioner</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Advocate Type (Petiotioner)</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>AdvocateNameofPetitioner</dc-element>
+					<dc-qualifier></dc-qualifier>
+					<repeatable>false</repeatable>
+					<label>Advocate Name (Petitioner)</label>
+					<input-type>onebox</input-type>
+					<hint/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>AdvocateBarNoofPetitioner</dc-element>
+					<dc-qualifier></dc-qualifier>
+					<repeatable>false</repeatable>
+					<label>Bar Council No. (Petitioner)</label>
+					<input-type>onebox</input-type>
+					<hint/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>AdvocateTypeofRespondent</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Advocate Type (Respondent)</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>AdvocateNameofRespondent</dc-element>
+					<dc-qualifier></dc-qualifier>
+					<repeatable>false</repeatable>
+					<label>Advocate Name (Respondent)</label>
+					<input-type>onebox</input-type>
+					<hint/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>AdvocateBarNoofRespondent</dc-element>
+					<dc-qualifier></dc-qualifier>
+					<repeatable>false</repeatable>
+					<label>Bar Council No. (Respondent)</label>
+					<input-type>onebox</input-type>
+					<style>col-sm-4</style>
+					<hint/>
+				</field>
+				
+			</row>
+		</form>
+		<!-- Judge Details -->
+		<form name="traditional_judge_details">
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>JudgeName</dc-element>
+					<dc-qualifier></dc-qualifier>
+					<repeatable>false</repeatable>
+					<label>Judge Name</label>
+					<input-type>onebox</input-type>
+					<hint/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>JudgeNameHindi</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Judge Name (Hindi)</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>JOCode</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>JO Code</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>Judgement</dc-element>
+					<dc-qualifier></dc-qualifier>
+					<repeatable>false</repeatable>
+					<label>Judgement</label>
+					<input-type>onebox</input-type>
+					<hint/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>Purpose</dc-element>
+					<dc-qualifier></dc-qualifier>
+					<repeatable>false</repeatable>
+					<label>Purpose</label>
+					<input-type>onebox</input-type>
+					<hint/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>SubPurpose</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Sub-Purpose</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>DateofDisposal</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Date Of Disposal</label>
+					<input-type>date</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>DisposalType</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Disposal Type</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>OrderType</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Order Type</label>
+					<input-type>onebox</input-type>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+			<row>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>OrderJudgementDate</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Order Judgement Date</label>
+					<input-type>date</input-type>
+					<style>col-sm-4</style>
+					<hint/>
+					<required/>
+				</field>
+				<field>
+					<dc-schema>dc</dc-schema>
+					<dc-element>GoshwaraNo</dc-element>
+					<dc-qualifier/>
+					<repeatable>false</repeatable>
+					<label>Goshwara Number</label>
+					<input-type>onebox</input-type>
+					<style>col-sm-4</style>
+					<hint/>
+					<required/>
+				</field>
+			</row>
+		</form>
+		<!-- Other Details -->
+		
+	</form-definitions>
+	<!--  form-value-pairs populate dropdown and qualdrop-value lists.           -->
+	<!--  The form-value-pairs element holds child elements named 'value-pairs'  -->
+	<!--  A 'value-pairs' element has a value-pairs-name and a dc-term           -->
+	<!--  attribute. The dc-term attribute specifies which to which Dublin Core  -->
+	<!--  Term this set of value-pairs applies.                                  -->
+	<!--      Current dc-terms are: identifier-pairs, type-pairs, and            -->
+	<!--      language_iso-pairs. The name attribute matches a name              -->
+	<!--      in the form-map, above.                                            -->
+	<!--  A value-pair contains one 'pair' for each value displayed in the list  -->
+	<!--  Each pair contains a 'displayed-value' element and a 'stored-value'    -->
+	<!--  element. A UI list displays the displayed-values, but the program      -->
+	<!--  stores the associated stored-values in the database.                   -->
+	<form-value-pairs>
+	<!-- Starting with our own custom pairs -->
+		<value-pairs value-pairs-name="case_nature_values" dc-term="CaseNature">
+		  <pair>
+			<displayed-value>Criminal</displayed-value>
+			<stored-value>criminal</stored-value>
+		  </pair>
+		  <pair>
+			<displayed-value>Civil</displayed-value>
+			<stored-value>civil</stored-value>
+		  </pair>
+		  <pair>
+			<displayed-value>Session</displayed-value>
+			<stored-value>Session</stored-value>
+		  </pair>
+		</value-pairs>
+		
+		<value-pairs value-pairs-name="case_status_values" dc-term="CaseStatus">
+		  <pair>
+			<displayed-value>In progress</displayed-value>
+			<stored-value>In Progress</stored-value>
+		  </pair>
+		  <pair>
+			<displayed-value>Pending</displayed-value>
+			<stored-value>Pending</stored-value>
+		  </pair>
+		  <pair>
+			<displayed-value>Disposed</displayed-value>
+			<stored-value>Disposed</stored-value>
+		  </pair>
+		  <pair>
+			<displayed-value>Closed</displayed-value>
+			<stored-value>Closed</stored-value>
+		  </pair>
+		</value-pairs>
+		
+		<value-pairs value-pairs-name="petitioner_gender_values" dc-term="PetitionerGender">
+		  <pair>
+			<displayed-value>Male</displayed-value>
+			<stored-value>Male</stored-value>
+		  </pair>
+		  <pair>
+			<displayed-value>Female</displayed-value>
+			<stored-value>Female</stored-value>
+		  </pair>
+		  <pair>
+			<displayed-value>Other</displayed-value>
+			<stored-value>Other</stored-value>
+		  </pair>
+		</value-pairs>
+		
+		<value-pairs value-pairs-name="respondent_gender_values" dc-term="RespondentGender">
+		  <pair>
+			<displayed-value>Male</displayed-value>
+			<stored-value>Male</stored-value>
+		  </pair>
+		  <pair>
+			<displayed-value>Female</displayed-value>
+			<stored-value>Female</stored-value>
+		  </pair>
+		  <pair>
+			<displayed-value>Other</displayed-value>
+			<stored-value>Other</stored-value>
+		  </pair>
+		</value-pairs>
+		
+		<value-pairs value-pairs-name="establishment_code_values" dc-term="EstablishmentCode">
+			<pair>
+				<displayed-value>DLCT01</displayed-value>
+				<stored-value>DLCT01</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLCT02</displayed-value>
+				<stored-value>DLCT02</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLCT03</displayed-value>
+				<stored-value>DLCT03</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLCT04</displayed-value>
+				<stored-value>DLCT04</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLWT01</displayed-value>
+				<stored-value>DLWT01</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLWT02</displayed-value>
+				<stored-value>DLWT02</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLWT03</displayed-value>
+				<stored-value>DLWT03</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLWT04</displayed-value>
+				<stored-value>DLWT04</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLNT01</displayed-value>
+				<stored-value>DLNT01</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLNT02</displayed-value>
+				<stored-value>DLNT02</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLNT03</displayed-value>
+				<stored-value>DLNT03</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLNT04</displayed-value>
+				<stored-value>DLNT04</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLNW01</displayed-value>
+				<stored-value>DLNW01</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLNW02</displayed-value>
+				<stored-value>DLNW02</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLNW03</displayed-value>
+				<stored-value>DLNW03</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLNW04</displayed-value>
+				<stored-value>DLNW04</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLST01</displayed-value>
+				<stored-value>DLST01</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLST02</displayed-value>
+				<stored-value>DLST02</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLST03</displayed-value>
+				<stored-value>DLST03</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLST04</displayed-value>
+				<stored-value>DLST04</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLSE01</displayed-value>
+				<stored-value>DLSE01</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLSE02</displayed-value>
+				<stored-value>DLSE02</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLSE03</displayed-value>
+				<stored-value>DLSE03</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLSE04</displayed-value>
+				<stored-value>DLSE04</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLET01</displayed-value>
+				<stored-value>DLET01</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLET02</displayed-value>
+				<stored-value>DLET02</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLET03</displayed-value>
+				<stored-value>DLET03</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLET04</displayed-value>
+				<stored-value>DLET04</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLNE01</displayed-value>
+				<stored-value>DLNE01</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLNE02</displayed-value>
+				<stored-value>DLNE02</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLNE03</displayed-value>
+				<stored-value>DLNE03</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLNE04</displayed-value>
+				<stored-value>DLNE04</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLSH01</displayed-value>
+				<stored-value>DLSH01</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLSH02</displayed-value>
+				<stored-value>DLSH02</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLSH03</displayed-value>
+				<stored-value>DLSH03</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLSH04</displayed-value>
+				<stored-value>DLSH04</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLND01</displayed-value>
+				<stored-value>DLND01</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLND02</displayed-value>
+				<stored-value>DLND02</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLND03</displayed-value>
+				<stored-value>DLND03</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLND04</displayed-value>
+				<stored-value>DLND04</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLSW01</displayed-value>
+				<stored-value>DLSW01</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLSW02</displayed-value>
+				<stored-value>DLSW02</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLSW03</displayed-value>
+				<stored-value>DLSW03</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLSW04</displayed-value>
+				<stored-value>DLSW04</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLCT11</displayed-value>
+				<stored-value>DLCT11</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLCT12</displayed-value>
+				<stored-value>DLCT12</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLCT13</displayed-value>
+				<stored-value>DLCT13</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLCT01</displayed-value>
+				<stored-value>DLCT01</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLCT02</displayed-value>
+				<stored-value>DLCT02</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLCT03</displayed-value>
+				<stored-value>DLCT03</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DLCT04</displayed-value>
+				<stored-value>DLCT04</stored-value>
+			</pair>
+		</value-pairs>
+		
+<!--		<value-pairs value-pairs-name="establishment_name_values" dc-term="EstablishmentName">
+			<pair>
+				<displayed-value>District and Sessions Judge</displayed-value>
+				<stored-value>District and Sessions Judge</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Judge Small cause Court</displayed-value>
+				<stored-value>Judge Small cause Court</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Chief Judicial Magistrate</displayed-value>
+				<stored-value>Chief Judicial Magistrate</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Civil Judge Senior Division</displayed-value>
+				<stored-value>Civil Judge Senior Division</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Civil Judge Junior Division</displayed-value>
+				<stored-value>Civil Judge Junior Division</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Family Court</displayed-value>
+				<stored-value>Family Court</stored-value>
+			</pair>
+		</value-pairs> !-->
+		
+		
+		<value-pairs value-pairs-name="case_type_code_values" dc-term="CaseTypeCode">
+			<pair>
+				<displayed-value>1</displayed-value>
+				<stored-value>1</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>2</displayed-value>
+				<stored-value>2</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>3</displayed-value>
+				<stored-value>3</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>4</displayed-value>
+				<stored-value>4</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>6</displayed-value>
+				<stored-value>6</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>7</displayed-value>
+				<stored-value>7</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>8</displayed-value>
+				<stored-value>8</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>9</displayed-value>
+				<stored-value>9</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>10</displayed-value>
+				<stored-value>10</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>11</displayed-value>
+				<stored-value>11</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>12</displayed-value>
+				<stored-value>12</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>13</displayed-value>
+				<stored-value>13</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>14</displayed-value>
+				<stored-value>14</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>15</displayed-value>
+				<stored-value>15</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>16</displayed-value>
+				<stored-value>16</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>17</displayed-value>
+				<stored-value>17</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>18</displayed-value>
+				<stored-value>18</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>19</displayed-value>
+				<stored-value>19</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>20</displayed-value>
+				<stored-value>20</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>21</displayed-value>
+				<stored-value>21</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>22</displayed-value>
+				<stored-value>22</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>23</displayed-value>
+				<stored-value>23</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>24</displayed-value>
+				<stored-value>24</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>25</displayed-value>
+				<stored-value>25</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>26</displayed-value>
+				<stored-value>26</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>27</displayed-value>
+				<stored-value>27</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>28</displayed-value>
+				<stored-value>28</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>29</displayed-value>
+				<stored-value>29</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>32</displayed-value>
+				<stored-value>32</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>33</displayed-value>
+				<stored-value>33</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>34</displayed-value>
+				<stored-value>34</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>35</displayed-value>
+				<stored-value>35</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>36</displayed-value>
+				<stored-value>36</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>38</displayed-value>
+				<stored-value>38</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>39</displayed-value>
+				<stored-value>39</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>40</displayed-value>
+				<stored-value>40</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>41</displayed-value>
+				<stored-value>41</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>42</displayed-value>
+				<stored-value>42</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>43</displayed-value>
+				<stored-value>43</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>44</displayed-value>
+				<stored-value>44</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>45</displayed-value>
+				<stored-value>45</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>46</displayed-value>
+				<stored-value>46</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>47</displayed-value>
+				<stored-value>47</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>48</displayed-value>
+				<stored-value>48</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>51</displayed-value>
+				<stored-value>51</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>52</displayed-value>
+				<stored-value>52</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>53</displayed-value>
+				<stored-value>53</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>54</displayed-value>
+				<stored-value>54</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>55</displayed-value>
+				<stored-value>55</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>56</displayed-value>
+				<stored-value>56</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>57</displayed-value>
+				<stored-value>57</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>58</displayed-value>
+				<stored-value>58</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>59</displayed-value>
+				<stored-value>59</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>60</displayed-value>
+				<stored-value>60</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>61</displayed-value>
+				<stored-value>61</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>62</displayed-value>
+				<stored-value>62</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>63</displayed-value>
+				<stored-value>63</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>64</displayed-value>
+				<stored-value>64</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>65</displayed-value>
+				<stored-value>65</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>66</displayed-value>
+				<stored-value>66</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>67</displayed-value>
+				<stored-value>67</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>68</displayed-value>
+				<stored-value>68</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>69</displayed-value>
+				<stored-value>69</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>70</displayed-value>
+				<stored-value>70</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>74</displayed-value>
+				<stored-value>74</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>75</displayed-value>
+				<stored-value>75</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>76</displayed-value>
+				<stored-value>76</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>77</displayed-value>
+				<stored-value>77</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>78</displayed-value>
+				<stored-value>78</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>79</displayed-value>
+				<stored-value>79</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>80</displayed-value>
+				<stored-value>80</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>81</displayed-value>
+				<stored-value>81</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>82</displayed-value>
+				<stored-value>82</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>83</displayed-value>
+				<stored-value>83</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>84</displayed-value>
+				<stored-value>84</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>85</displayed-value>
+				<stored-value>85</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>86</displayed-value>
+				<stored-value>86</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>87</displayed-value>
+				<stored-value>87</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>88</displayed-value>
+				<stored-value>88</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>89</displayed-value>
+				<stored-value>89</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>90</displayed-value>
+				<stored-value>90</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>188</displayed-value>
+				<stored-value>188</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>380</displayed-value>
+				<stored-value>380</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>379</displayed-value>
+				<stored-value>379</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>392</displayed-value>
+				<stored-value>392</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>156</displayed-value>
+				<stored-value>156</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>12955</displayed-value>
+				<stored-value>12955</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>363</displayed-value>
+				<stored-value>363</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>1563</displayed-value>
+				<stored-value>1563</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>279</displayed-value>
+				<stored-value>279</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>200</displayed-value>
+				<stored-value>200</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>304</displayed-value>
+				<stored-value>304</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>303</displayed-value>
+				<stored-value>303</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>323</displayed-value>
+				<stored-value>323</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>341</displayed-value>
+				<stored-value>341</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>283</displayed-value>
+				<stored-value>283</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>2001</displayed-value>
+				<stored-value>2001</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>0</displayed-value>
+				<stored-value>0</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>110</displayed-value>
+				<stored-value>110</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>338</displayed-value>
+				<stored-value>338</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>138</displayed-value>
+				<stored-value>138</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>5</displayed-value>
+				<stored-value>5</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>1100</displayed-value>
+				<stored-value>1100</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>1200</displayed-value>
+				<stored-value>1200</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>406</displayed-value>
+				<stored-value>406</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>498</displayed-value>
+				<stored-value>498</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>155</displayed-value>
+				<stored-value>155</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>5200</displayed-value>
+				<stored-value>5200</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>520</displayed-value>
+				<stored-value>520</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>3044</displayed-value>
+				<stored-value>3044</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>289</displayed-value>
+				<stored-value>289</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>420</displayed-value>
+				<stored-value>420</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>429</displayed-value>
+				<stored-value>429</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>353</displayed-value>
+				<stored-value>353</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>500</displayed-value>
+				<stored-value>500</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>332</displayed-value>
+				<stored-value>332</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>103</displayed-value>
+				<stored-value>103</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>2161</displayed-value>
+				<stored-value>2161</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>306</displayed-value>
+				<stored-value>306</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>411</displayed-value>
+				<stored-value>411</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>114</displayed-value>
+				<stored-value>114</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>354</displayed-value>
+				<stored-value>354</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>507</displayed-value>
+				<stored-value>507</stored-value>
+			</pair>
+		</value-pairs>
+		
+		<value-pairs value-pairs-name="common_identifiers" dc-term="identifier">
+			<pair>
+				<displayed-value>ISSN</displayed-value>
+				<stored-value>issn</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Other</displayed-value>
+				<stored-value>other</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>ISMN</displayed-value>
+				<stored-value>ismn</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Gov't Doc #</displayed-value>
+				<stored-value>govdoc</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>URI</displayed-value>
+				<stored-value>uri</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>ISBN</displayed-value>
+				<stored-value>isbn</stored-value>
+			</pair>
+		</value-pairs>
+		<!--
+		<value-pairs value-pairs-name="case_type_name_values" dc-term="CaseTypeName">
+			<pair>
+				<displayed-value>HINDU MARRIAGE ACT</displayed-value>
+				<stored-value>HINDU MARRIAGE ACT</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>LAND ACQ. ACT</displayed-value>
+				<stored-value>LAND ACQ. ACT</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>PUBLIC PREMISES ACT</displayed-value>
+				<stored-value>PUBLIC PREMISES ACT</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>HOUSE TAX APPEAL</displayed-value>
+				<stored-value>HOUSE TAX APPEAL</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>TRADE MARKS</displayed-value>
+				<stored-value>TRADE MARKS</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>PROBATE/LETTER OF ADMIN</displayed-value>
+				<stored-value>PROBATE/LETTER OF ADMIN</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>RENT CONTROLlER/ADDL. R.C.</displayed-value>
+				<stored-value>RENT CONTROLlER/ADDL. R.C.</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>RENT CNTRL TRIBUNAL/ADDL R.C.T</displayed-value>
+				<stored-value>RENT CNTRL TRIBUNAL/ADDL R.C.T</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>LABOUR COURT</displayed-value>
+				<stored-value>LABOUR COURT</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>INDUSTRIAL TRIBUNAL</displayed-value>
+				<stored-value>INDUSTRIAL TRIBUNAL</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>M.A.C.T.</displayed-value>
+				<stored-value>M.A.C.T.</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>SUCCESSION COURT</displayed-value>
+				<stored-value>SUCCESSION COURT</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>MUSLIM LAW DELHI WAKF BOARD</displayed-value>
+				<stored-value>MUSLIM LAW DELHI WAKF BOARD</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>HINDU ADOPTATION MAINT. ACT</displayed-value>
+				<stored-value>HINDU ADOPTATION MAINT. ACT</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>CIVIL SUIT FOR CIVIL JUDGE</displayed-value>
+				<stored-value>CIVIL SUIT FOR CIVIL JUDGE</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>CIVIL SUIT FOR DJ and ADJ</displayed-value>
+				<stored-value>CIVIL SUIT FOR DJ and ADJ</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>SMALL CAUSE COURT</displayed-value>
+				<stored-value>SMALL CAUSE COURT</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>LABOUR/IND. TRIB. REF. MATTER</displayed-value>
+				<stored-value>LABOUR/IND. TRIB. REF. MATTER</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>CRIMINAL APPEAL</displayed-value>
+				<stored-value>CRIMINAL APPEAL</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>CRIMINAL CASE</displayed-value>
+				<stored-value>CRIMINAL CASE</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>CRIMINAL REVISION</displayed-value>
+				<stored-value>CRIMINAL REVISION</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>SESSIONS CASE</displayed-value>
+				<stored-value>SESSIONS CASE</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>COMPLAINT CASES</displayed-value>
+				<stored-value>COMPLAINT CASES</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>MAHILA COURT</displayed-value>
+				<stored-value>MAHILA COURT</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>CBI</displayed-value>
+				<stored-value>CBI</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>REGULAR CIVIL APPEAL FOR CJ</displayed-value>
+				<stored-value>REGULAR CIVIL APPEAL FOR CJ</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>REG. CIVIL APPEAL DJ and ADJ</displayed-value>
+				<stored-value>REG. CIVIL APPEAL DJ and ADJ</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>CORRUPTION CASES</displayed-value>
+				<stored-value>CORRUPTION CASES</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>MISC. CIVIL APPEAL DJ and  ADJ</displayed-value>
+				<stored-value>MISC. CIVIL APPEAL DJ and  ADJ</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>MISC. CASES DJ and ADJ</displayed-value>
+				<stored-value>MISC. CASES DJ and ADJ</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>MISC. CIVIL APPEAL FOR CJ</displayed-value>
+				<stored-value>MISC. CIVIL APPEAL FOR CJ</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>MISC. CASES FOR CJ</displayed-value>
+				<stored-value>MISC. CASES FOR CJ</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>MISC. CASES Crl</displayed-value>
+				<stored-value>MISC. CASES Crl</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>EXECUTION</displayed-value>
+				<stored-value>EXECUTION</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>EXECUTION CRIMINAL</displayed-value>
+				<stored-value>EXECUTION CRIMINAL</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Insolvency Case</displayed-value>
+				<stored-value>Insolvency Case</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Court Complaint</displayed-value>
+				<stored-value>Court Complaint</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Employee State Insurance Act</displayed-value>
+				<stored-value>Employee State Insurance Act</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Right to Inf. Act appeal</displayed-value>
+				<stored-value>Right to Inf. Act appeal</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>TRAFFIC CHALLAN</displayed-value>
+				<stored-value>TRAFFIC CHALLAN</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>GUARDIAN CASES</displayed-value>
+				<stored-value>GUARDIAN CASES</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>MENTAL HEALTH CASES</displayed-value>
+				<stored-value>MENTAL HEALTH CASES</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Misc. Guardianship cases</displayed-value>
+				<stored-value>Misc. Guardianship cases</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Misc.Probate cases</displayed-value>
+				<stored-value>Misc.Probate cases</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>RECEIVERSHIP CASES</displayed-value>
+				<stored-value>RECEIVERSHIP CASES</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Labour Court Application</displayed-value>
+				<stored-value>Labour Court Application</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Approval</displayed-value>
+				<stored-value>Approval</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Misc. Execution</displayed-value>
+				<stored-value>Misc. Execution</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>REVOCATION</displayed-value>
+				<stored-value>REVOCATION</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Labour Industrial Dispute</displayed-value>
+				<stored-value>Labour Industrial Dispute</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Transfer Application</displayed-value>
+				<stored-value>Transfer Application</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Transfer Application(CRL)</displayed-value>
+				<stored-value>Transfer Application(CRL)</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DEVORCE ACT</displayed-value>
+				<stored-value>DEVORCE ACT</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>SPECIAL MARRIAGE ACT</displayed-value>
+				<stored-value>SPECIAL MARRIAGE ACT</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>ARBITRATION CASES</displayed-value>
+				<stored-value>ARBITRATION CASES</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>MAINTENANCE PETITION</displayed-value>
+				<stored-value>MAINTENANCE PETITION</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Closure Report</displayed-value>
+				<stored-value>Closure Report</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>MCD APPEAL</displayed-value>
+				<stored-value>MCD APPEAL</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Revision Petition (Civil)</displayed-value>
+				<stored-value>Revision Petition (Civil)</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>MISC. CASE FOR RC/ARC</displayed-value>
+				<stored-value>MISC. CASE FOR RC/ARC</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>ELECTION PETITION</displayed-value>
+				<stored-value>ELECTION PETITION</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Comp. and Rehab. Act 1954</displayed-value>
+				<stored-value>Comp. and Rehab. Act 1954</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Contempt Petition</displayed-value>
+				<stored-value>Contempt Petition</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Counter Claim</displayed-value>
+				<stored-value>Counter Claim</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Bail Matters</displayed-value>
+				<stored-value>Bail Matters</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>CIVIL SUIT (COMMERCIAL)</displayed-value>
+				<stored-value>CIVIL SUIT (COMMERCIAL)</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>COMMERCIAL ARBITRATION U/S 9</displayed-value>
+				<stored-value>COMMERCIAL ARBITRATION U/S 9</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>COMMERCIAL ARBITRATION UNDER SECTION 14 AND 15</displayed-value>
+				<stored-value>COMMERCIAL ARBITRATION UNDER SECTION 14 AND 15</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>COMMERCIAL ARBITRATION UNDER SECTION 27</displayed-value>
+				<stored-value>COMMERCIAL ARBITRATION UNDER SECTION 27</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>COMMERCIAL ARBITRATION UNDER SECTION  29A</displayed-value>
+				<stored-value>COMMERCIAL ARBITRATION UNDER SECTION  29A</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>COMMERCIAL ARBITRATION UNDER SECTION 34</displayed-value>
+				<stored-value>COMMERCIAL ARBITRATION UNDER SECTION 34</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>COMMERCIAL ARBITRATION UNDER SECTION 37 (2)</displayed-value>
+				<stored-value>COMMERCIAL ARBITRATION UNDER SECTION 37 (2)</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Complaint Case 138 NI Act</displayed-value>
+				<stored-value>Complaint Case 138 NI Act</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Christian Marriage Act</displayed-value>
+				<stored-value>Christian Marriage Act</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Decree/Order passed by Arbitrator in Commercial Cases</displayed-value>
+				<stored-value>Decree/Order passed by Arbitrator in Commercial Cases</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Foreign Marriage Act</displayed-value>
+				<stored-value>Foreign Marriage Act</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DEPOSIT OF RENT</displayed-value>
+				<stored-value>DEPOSIT OF RENT</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Misc. DR</displayed-value>
+				<stored-value>Misc. DR</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Matters involving differently abled persons</displayed-value>
+				<stored-value>Matters involving differently abled persons</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Award passed by Arbitrator</displayed-value>
+				<stored-value>Award passed by Arbitrator</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Award passed by Arbitrator in Commercial Matter</displayed-value>
+				<stored-value>Award passed by Arbitrator in Commercial Matter</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Disobedience to orders issued by public servant</displayed-value>
+				<stored-value>Disobedience to orders issued by public servant</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Theft in tent vessel</displayed-value>
+				<stored-value>Theft in tent vessel</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>PUNISHMENT FOR THEFT</displayed-value>
+				<stored-value>PUNISHMENT FOR THEFT</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>punishment for robbery</displayed-value>
+				<stored-value>punishment for robbery</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>RIOT IS COMMITTED</displayed-value>
+				<stored-value>RIOT IS COMMITTED</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>GAMBLING ACT 1995</displayed-value>
+				<stored-value>GAMBLING ACT 1995</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>KIDNAPPING PUNISHMENT</displayed-value>
+				<stored-value>KIDNAPPING PUNISHMENT</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>MAGISTRATE TO ORDER INVESTIGATION</displayed-value>
+				<stored-value>MAGISTRATE TO ORDER INVESTIGATION</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Rash Driving</displayed-value>
+				<stored-value>Rash Driving</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>A Magistrate must examine the complaint and witnesses under oath and record their statements in writing signed by all parties when taking cognizance of an offense </displayed-value>
+				<stored-value>A Magistrate must examine the complaint and witnesses under oath and record their statements in writing signed by all parties when taking cognizance of an offense </stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Road Accident</displayed-value>
+				<stored-value>Road Accident</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>murder committed during a life sentence</displayed-value>
+				<stored-value>murder committed during a life sentence</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>voluntarily causing hurt</displayed-value>
+				<stored-value>voluntarily causing hurt</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>wrongful restraint</displayed-value>
+				<stored-value>wrongful restraint</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Causing Danger or obstruction in public</displayed-value>
+				<stored-value>Causing Danger or obstruction in public</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>False Information</displayed-value>
+				<stored-value>False Information</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DIWANI (ADJ)</displayed-value>
+				<stored-value>DIWANI (ADJ)</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Excise Act</displayed-value>
+				<stored-value>Excise Act</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>CAUSING GRIEVOUS HURT</displayed-value>
+				<stored-value>CAUSING GRIEVOUS HURT</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>NEGOTIABLE INSTRUMENT</displayed-value>
+				<stored-value>NEGOTIABLE INSTRUMENT</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>ARMS ACT</displayed-value>
+				<stored-value>ARMS ACT</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Ex. Civil</displayed-value>
+				<stored-value>Ex. Civil</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DOMESTIC VIOLENCE ACT</displayed-value>
+				<stored-value>DOMESTIC VIOLENCE ACT</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>PUNISHMENT FOR CRIMINAL BREACH OF TRUST</displayed-value>
+				<stored-value>PUNISHMENT FOR CRIMINAL BREACH OF TRUST</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>CRUELTY AGAINST A MARRIED WOMAN BY HER HUSBAND AND HIS RELATIVES</displayed-value>
+				<stored-value>CRUELTY AGAINST A MARRIED WOMAN BY HER HUSBAND AND HIS RELATIVES</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>NO POLICE OFFICER CAN INVESTIGATE A NON- COGNIZABLE CASE WITHOUT THE ORDER OF A MAGISTRATE</displayed-value>
+				<stored-value>NO POLICE OFFICER CAN INVESTIGATE A NON- COGNIZABLE CASE WITHOUT THE ORDER OF A MAGISTRATE</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>FAUJDARI</displayed-value>
+				<stored-value>FAUJDARI</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>FAUJDARI(F)</displayed-value>
+				<stored-value>FAUJDARI(F)</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>CAUSING DEATH BY NEGLIGENCE ACT </displayed-value>
+				<stored-value>CAUSING DEATH BY NEGLIGENCE ACT </stored-value>
+			</pair>
+			<pair>
+				<displayed-value>NEGLIGENT CONDUCT TOWARDS ANIMALS</displayed-value>
+				<stored-value>NEGLIGENT CONDUCT TOWARDS ANIMALS</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>cheating and dishonesty</displayed-value>
+				<stored-value>cheating and dishonesty</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>mischief</displayed-value>
+				<stored-value>mischief</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>USE OF CRIMINAL FORCE TO DETER A PUBLIC SERVANT</displayed-value>
+				<stored-value>USE OF CRIMINAL FORCE TO DETER A PUBLIC SERVANT</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>PUNISHMENT FOR DEFAMATION</displayed-value>
+				<stored-value>PUNISHMENT FOR DEFAMATION</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Prohibits The Erection</displayed-value>
+				<stored-value>Prohibits The Erection</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DELHI POLICE ACT</displayed-value>
+				<stored-value>DELHI POLICE ACT</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>NDPS ACT</displayed-value>
+				<stored-value>NDPS ACT</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Act Done by Several Preson</displayed-value>
+				<stored-value>Act Done by Several Preson</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DISHONESTLY RECEIVING </displayed-value>
+				<stored-value>DISHONESTLY RECEIVING </stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Drug Act</displayed-value>
+				<stored-value>Drug Act</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DEAL WITH ASSAULT AND CRIMINAL FORCE TO A WOMAN</displayed-value>
+				<stored-value>DEAL WITH ASSAULT AND CRIMINAL FORCE TO A WOMAN</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>DEALS WITH CRIMINAL INTIMIDATION BY ANYMORE COMMUNICATION</displayed-value>
+				<stored-value>DEALS WITH CRIMINAL INTIMIDATION BY ANYMORE COMMUNICATION</stored-value>
+			</pair>
+		</value-pairs>
+		-->
+		<!--  System value pair started
+           -->
+		<value-pairs value-pairs-name="common_types" dc-term="type">
+			<pair>
+				<displayed-value>Animation</displayed-value>
+				<stored-value>Animation</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Article</displayed-value>
+				<stored-value>Article</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Book</displayed-value>
+				<stored-value>Book</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Book chapter</displayed-value>
+				<stored-value>Book chapter</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Dataset</displayed-value>
+				<stored-value>Dataset</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Learning Object</displayed-value>
+				<stored-value>Learning Object</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Image</displayed-value>
+				<stored-value>Image</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Image, 3-D</displayed-value>
+				<stored-value>Image, 3-D</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Map</displayed-value>
+				<stored-value>Map</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Musical Score</displayed-value>
+				<stored-value>Musical Score</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Plan or blueprint</displayed-value>
+				<stored-value>Plan or blueprint</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Preprint</displayed-value>
+				<stored-value>Preprint</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Presentation</displayed-value>
+				<stored-value>Presentation</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Recording, acoustical</displayed-value>
+				<stored-value>Recording, acoustical</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Recording, musical</displayed-value>
+				<stored-value>Recording, musical</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Recording, oral</displayed-value>
+				<stored-value>Recording, oral</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Software</displayed-value>
+				<stored-value>Software</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Technical Report</displayed-value>
+				<stored-value>Technical Report</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Thesis</displayed-value>
+				<stored-value>Thesis</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Video</displayed-value>
+				<stored-value>Video</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Working Paper</displayed-value>
+				<stored-value>Working Paper</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Other</displayed-value>
+				<stored-value>Other</stored-value>
+			</pair>
+		</value-pairs>
+		<!--  default language order: (from dspace 1.2.1)
+             "en_US", "en", "es", "de", "fr", "it", "ja", "zh", "other", ""
+           -->
+		<value-pairs value-pairs-name="common_iso_languages" dc-term="language_iso">
+			<pair>
+				<displayed-value>N/A</displayed-value>
+				<stored-value/>
+			</pair>
+			<pair>
+				<displayed-value>English (United States)</displayed-value>
+				<stored-value>en_US</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>English</displayed-value>
+				<stored-value>en</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Spanish</displayed-value>
+				<stored-value>es</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>German</displayed-value>
+				<stored-value>de</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>French</displayed-value>
+				<stored-value>fr</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Italian</displayed-value>
+				<stored-value>it</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Japanese</displayed-value>
+				<stored-value>ja</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Chinese</displayed-value>
+				<stored-value>zh</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Portuguese</displayed-value>
+				<stored-value>pt</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Turkish</displayed-value>
+				<stored-value>tr</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>(Other)</displayed-value>
+				<stored-value>other</stored-value>
+			</pair>
+		</value-pairs>
+		<!--  OpenAIRE specific value pairs  -->
+		<value-pairs value-pairs-name="openaire_license_types" dc-term="license">
+			<!--  Based on: http://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/latest/field_licensecondition.html#dc-rightslicensecondition  -->
+			<pair>
+				<displayed-value>Without License</displayed-value>
+				<stored-value/>
+			</pair>
+			<pair>
+				<displayed-value>Attribution (CC-BY)</displayed-value>
+				<stored-value>https://creativecommons.org/licenses/by/4.0/</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Attribution, No Derivative Works (CC-BY-ND)</displayed-value>
+				<stored-value>https://creativecommons.org/licenses/by-nd/4.0/</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Attribution, Share-alike (CC-BY-SA)</displayed-value>
+				<stored-value>https://creativecommons.org/licenses/by-sa/4.0/</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Attribution, Non-commercial (CC-BY-NC)</displayed-value>
+				<stored-value>https://creativecommons.org/licenses/by-nc/4.0/</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Attribution, Non-commercial, No Derivative Works (CC-BY-NC-ND)</displayed-value>
+				<stored-value>https://creativecommons.org/licenses/by-nc-nd/4.0/</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Attribution, Non-commercial, Share-alike (CC-BY-NC-SA)</displayed-value>
+				<stored-value>https://creativecommons.org/licenses/by-nc-sa/4.0/</stored-value>
+			</pair>
+			<!--  Add here other licenses  -->
+			<pair>
+				<displayed-value>Other</displayed-value>
+				<stored-value>other</stored-value>
+			</pair>
+		</value-pairs>
+		<!--  OpenAIRE document types
+             https://openaire-guidelines-for-literature-repository-managers.readthedocs.io/en/v4.0.0/field_publicationtype.html
+             Based on COAR Vocabularies -> Controlled Vocabulary for Resource Type Genres (Version 2.0):
+             http://vocabularies.coar-repositories.org/documentation/resource_types/
+         -->
+		<value-pairs value-pairs-name="openaire_types" dc-term="type">
+			<pair>
+				<displayed-value>Interactive Resource</displayed-value>
+				<stored-value>interactive resource</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>- Website</displayed-value>
+				<stored-value>website</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Dataset</displayed-value>
+				<stored-value>dataset</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>- Interview</displayed-value>
+				<stored-value>interview</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Image</displayed-value>
+				<stored-value>image</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>- Moving Image</displayed-value>
+				<stored-value>moving image</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>-- Video</displayed-value>
+				<stored-value>video</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>- Still Image</displayed-value>
+				<stored-value>still image</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Other</displayed-value>
+				<stored-value>other</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Software</displayed-value>
+				<stored-value>software</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>- Research Software</displayed-value>
+				<stored-value>research software</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Workflow</displayed-value>
+				<stored-value>workflow</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Cartographic Material</displayed-value>
+				<stored-value>cartographic material</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>- Map</displayed-value>
+				<stored-value>map</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Sound</displayed-value>
+				<stored-value>sound</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>- Musical Composition</displayed-value>
+				<stored-value>musical composition</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Text</displayed-value>
+				<stored-value>text</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>- Annotation</displayed-value>
+				<stored-value>annotation</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>- Bibliography</displayed-value>
+				<stored-value>bibliography</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>- Book</displayed-value>
+				<stored-value>book</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>-- Book Part</displayed-value>
+				<stored-value>book part</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>- Conference Object</displayed-value>
+				<stored-value>conference object</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>-- Conference Proceedings</displayed-value>
+				<stored-value>conference proceedings</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>--- Conference Paper</displayed-value>
+				<stored-value>conference paper</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>--- Conference Poster</displayed-value>
+				<stored-value>conference poster</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>-- Conference Paper Not In Proceedings</displayed-value>
+				<stored-value>conference paper not in proceedings</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>-- Conference Poster Not In Proceedings</displayed-value>
+				<stored-value>conference poster not in proceedings</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>- Lecture</displayed-value>
+				<stored-value>lecture</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>- Letter</displayed-value>
+				<stored-value>letter</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>- Periodical</displayed-value>
+				<stored-value>periodical</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>-- Journal</displayed-value>
+				<stored-value>journal</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>--- Contribution to Journal</displayed-value>
+				<stored-value>contribution to journal</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>---- Journal Article</displayed-value>
+				<stored-value>journal article</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>----- Data Paper</displayed-value>
+				<stored-value>data paper</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>----- Review Article</displayed-value>
+				<stored-value>review article</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>----- Research Article</displayed-value>
+				<stored-value>research article</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>----- Corrigendum</displayed-value>
+				<stored-value>corrigendum</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>----- Software Paper</displayed-value>
+				<stored-value>software paper</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>---- Editorial</displayed-value>
+				<stored-value>editorial</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>---- Letter to the Editor</displayed-value>
+				<stored-value>letter to the editor</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>-- Newspaper</displayed-value>
+				<stored-value>newspaper</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>--- Newspaper Article</displayed-value>
+				<stored-value>newspaper article</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>-- Magazine</displayed-value>
+				<stored-value>magazine</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>- Patent</displayed-value>
+				<stored-value>patent</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>- Preprint</displayed-value>
+				<stored-value>preprint</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>- Report</displayed-value>
+				<stored-value>report</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>-- Report Part</displayed-value>
+				<stored-value>report part</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>-- Internal Report</displayed-value>
+				<stored-value>internal report</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>-- Memorandum</displayed-value>
+				<stored-value>memorandum</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>-- Other Type of Report</displayed-value>
+				<stored-value>other type of report</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>-- Policy Report</displayed-value>
+				<stored-value>policy report</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>-- Project Deliverable</displayed-value>
+				<stored-value>project deliverable</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>--- Data Management Plan</displayed-value>
+				<stored-value>data management plan</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>-- Report to Funding Agency</displayed-value>
+				<stored-value>report to funding agency</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>-- Research Report</displayed-value>
+				<stored-value>research report</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>-- Technical Report</displayed-value>
+				<stored-value>technical report</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>- Research Proposal</displayed-value>
+				<stored-value>research proposal</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>- Review</displayed-value>
+				<stored-value>review</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>-- Book Review</displayed-value>
+				<stored-value>book review</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>- Technical Documentation</displayed-value>
+				<stored-value>technical documentation</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>- Working Paper</displayed-value>
+				<stored-value>working paper</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>- Thesis</displayed-value>
+				<stored-value>thesis</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>-- Bachelor Thesis</displayed-value>
+				<stored-value>bachelor thesis</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>-- Doctoral Thesis</displayed-value>
+				<stored-value>doctoral thesis</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>-- Master Thesis</displayed-value>
+				<stored-value>master thesis</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>- Musical Notation</displayed-value>
+				<stored-value>musical notation</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>- Blog Post</displayed-value>
+				<stored-value>blog post</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>- Manuscript</displayed-value>
+				<stored-value>website</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Learning Object</displayed-value>
+				<stored-value>learning object</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Clinical Trial</displayed-value>
+				<stored-value>clinical trial</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Clinical Study</displayed-value>
+				<stored-value>clinical study</stored-value>
+			</pair>
+		</value-pairs>
+		<value-pairs value-pairs-name="openaire_version_types" dc-term="version">
+			<pair>
+				<displayed-value>Author’s Original</displayed-value>
+				<stored-value>http://purl.org/coar/version/c_b1a7d7d4d402bcce</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Submitted Manuscript Under Review</displayed-value>
+				<stored-value>http://purl.org/coar/version/c_71e4c1898caa6e32</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Accepted Manuscript</displayed-value>
+				<stored-value>http://purl.org/coar/version/c_ab4af688f83e57aa</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Proof</displayed-value>
+				<stored-value>http://purl.org/coar/version/c_fa2ee174bc00049f</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Version of Record</displayed-value>
+				<stored-value>http://purl.org/coar/version/c_970fb48d4fbd8a85</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Corrected Version of Record</displayed-value>
+				<stored-value>http://purl.org/coar/version/c_e19f295774971610</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Enhanced Version of Record</displayed-value>
+				<stored-value>http://purl.org/coar/version/c_dc82b40f9837b551</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Not Applicable (or Unknown)</displayed-value>
+				<stored-value>http://purl.org/coar/version/c_be7fb7dd8ff6fe43</stored-value>
+			</pair>
+		</value-pairs>
+		<value-pairs value-pairs-name="openaire_rights" dc-term="rights">
+			<pair>
+				<displayed-value>open access</displayed-value>
+				<stored-value>http://purl.org/coar/access_right/c_abf2</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>embargoed access</displayed-value>
+				<stored-value>http://purl.org/coar/access_right/c_f1cf</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>restricted access</displayed-value>
+				<stored-value>http://purl.org/coar/access_right/c_16ec</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>metadata only access</displayed-value>
+				<stored-value>http://purl.org/coar/access_right/c_14cb</stored-value>
+			</pair>
+		</value-pairs>
+		<value-pairs value-pairs-name="openaire_author_identifier_types" dc-term="identifier">
+			<pair>
+				<displayed-value>Scopus Author ID</displayed-value>
+				<stored-value>scopus-author-id</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Ciencia ID</displayed-value>
+				<stored-value>ciencia-id</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Google Scholar ID</displayed-value>
+				<stored-value>gsid</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Open Researcher and Contributor ID (ORCID)</displayed-value>
+				<stored-value>orcid</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Web of Science ResearcherID</displayed-value>
+				<stored-value>rid</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>ISNI - International Standard Name Identifier</displayed-value>
+				<stored-value>isni</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Other</displayed-value>
+				<stored-value/>
+			</pair>
+		</value-pairs>
+		<value-pairs value-pairs-name="openaire_organization_identifier_types" dc-term="identifier">
+			<pair>
+				<displayed-value>ISNI - International Standard Name Identifier</displayed-value>
+				<stored-value>isni</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Ringgold identifier</displayed-value>
+				<stored-value>rin</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Research Organization Registry</displayed-value>
+				<stored-value>ror</stored-value>
+			</pair>
+			<pair>
+				<displayed-value>Other</displayed-value>
+				<stored-value/>
+			</pair>
+		</value-pairs>
+		<value-pairs value-pairs-name="openaire_organization_types" dc-term="type">
+			<pair>
+				<displayed-value>N/A</displayed-value>
+				<stored-value/>
+			</pair>
+			<pair>
+				<displayed-value>Is a Funding Organization</displayed-value>
+				<stored-value>FundingOrganization</stored-value>
+			</pair>
+		</value-pairs>
+	</form-value-pairs>
+</input-forms>
