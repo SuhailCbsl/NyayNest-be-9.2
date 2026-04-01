@@ -1,4 +1,4 @@
-package org.dspace.app.rest.upload.model;
+package org.dspace.upload.model;
 
 import java.time.LocalDateTime;
 

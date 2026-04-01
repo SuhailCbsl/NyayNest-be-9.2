@@ -1,4 +1,4 @@
-package org.dspace.app.rest.utils;
+package org.dspace.util;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,7 +20,6 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDDocumentCatalog;
 import org.apache.pdfbox.pdmodel.common.PDMetadata;
 import org.apache.pdfbox.pdmodel.interactive.digitalsignature.PDSignature;
-import org.dspace.app.rest.constants.NyayNestConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

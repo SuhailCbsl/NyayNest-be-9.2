@@ -1,4 +1,4 @@
-package org.dspace.app.rest.constants;
+package org.dspace.util;
 
 public class NyayNestConstants {
 

@@ -1,4 +1,4 @@
-package org.dspace.app.rest.upload.service;
+package org.dspace.upload.service;
 
 public interface ItemUploadInfoService {
 

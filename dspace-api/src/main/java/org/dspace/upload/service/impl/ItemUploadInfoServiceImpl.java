@@ -1,6 +1,5 @@
-package org.dspace.app.rest.upload.service.impl;
+package org.dspace.upload.service.impl;
 
-import java.io.File;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,10 +17,6 @@ import javax.sql.DataSource;
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.io.RandomAccessReadBuffer;
 import org.apache.pdfbox.pdmodel.PDDocument;
-import org.dspace.app.rest.constants.NyayNestConstants;
-import org.dspace.app.rest.upload.model.ItemUploadInfo;
-import org.dspace.app.rest.upload.service.ItemUploadInfoService;
-import org.dspace.app.rest.utils.PDFAUtility;
 import org.dspace.content.Bitstream;
 import org.dspace.content.Item;
 import org.dspace.content.MetadataValue;
@@ -30,10 +25,12 @@ import org.dspace.content.service.ItemService;
 import org.dspace.core.Context;
 import org.dspace.services.factory.DSpaceServicesFactory;
 import org.dspace.storage.bitstore.service.BitstreamStorageService;
-
+import org.dspace.upload.model.ItemUploadInfo;
+import org.dspace.upload.service.ItemUploadInfoService;
+import org.dspace.util.NyayNestConstants;
+import org.dspace.util.PDFAUtility;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class ItemUploadInfoServiceImpl implements ItemUploadInfoService {
 
@@ -42,13 +39,21 @@ public class ItemUploadInfoServiceImpl implements ItemUploadInfoService {
     private DataSource dataSource = DSpaceServicesFactory.getInstance().getServiceManager()
             .getServiceByName("dataSource", DataSource.class);
 
-    @Autowired
     private BitstreamService bitstreamService;
-    @Autowired
     private BitstreamStorageService bitstreamStorageService;
-    @Autowired
     private ItemService itemService;
 
+    public void setBitstreamService(BitstreamService bitstreamService) {
+        this.bitstreamService = bitstreamService;
+    }
+
+    public void setBitstreamStorageService(BitstreamStorageService bitstreamStorageService) {
+        this.bitstreamStorageService = bitstreamStorageService;
+    }
+
+    public void setItemService(ItemService itemService) {
+        this.itemService = itemService;
+    }
 
     @Override
     public void storeItemUploadInfo(String handle) {
@@ -195,7 +200,7 @@ public class ItemUploadInfoServiceImpl implements ItemUploadInfoService {
                         uploadInfo.setPDFA((boolean) pdfDetails.get(NyayNestConstants.IS_PDFA));
                         uploadInfo.setHasDigitalSignature((boolean) pdfDetails.get(NyayNestConstants.HAS_DIGITAL_SIGNATURES));
                         uploadInfo.setSignee((String) pdfDetails.get(NyayNestConstants.SIGNEE));
-                        uploadInfo.setSignedAt(Objects.nonNull(pdfDetails.get(NyayNestConstants.SIGNED_AT)) ? (LocalDateTime) pdfDetails.get(NyayNestConstants.SIGNED_AT) : null);
+                        uploadInfo.setSignedAt(Objects.nonNull(pdfDetails.get(org.dspace.util.NyayNestConstants.SIGNED_AT)) ? (LocalDateTime) pdfDetails.get(NyayNestConstants.SIGNED_AT) : null);
                         uploadInfo.setTypeOfFile("");
                         uploadInfo.setTotalFileCount(totalFileCount);
                         uploadInfo.setPdfCount(pdfCount);
