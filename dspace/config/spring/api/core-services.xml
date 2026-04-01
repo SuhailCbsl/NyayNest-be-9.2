@@ -174,5 +174,10 @@
 
     <bean class="org.dspace.correctiontype.service.impl.CorrectionTypeServiceImpl"/>
 
+    <!-- Upload Service -->
+    <bean id="itemUploadInfoService"
+          class="org.dspace.upload.service.impl.ItemUploadInfoServiceImpl"/>
+
+
 </beans>
 
