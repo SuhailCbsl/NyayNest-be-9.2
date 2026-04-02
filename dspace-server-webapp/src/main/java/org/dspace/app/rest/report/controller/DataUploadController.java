@@ -1,9 +1,11 @@
 package org.dspace.app.rest.report.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import org.dspace.app.rest.report.DataUploadService;
 import org.dspace.app.rest.report.dto.DataTrendDTO;
+import org.dspace.app.rest.report.service.DataUploadService;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -79,6 +81,32 @@ public class DataUploadController {
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=upload-report.csv")
                 .contentType(MediaType.parseMediaType("text/csv"))
                 .body(csvReport);
+    }
+
+    @GetMapping("/saveitembulkupload")
+    public boolean saveItemBulkUpload() {
+        try {
+            System.out.println("Scheduler status update started...");
+            boolean result = dataUploadService.saveSchedulerStatus();
+            return result; // true or false to UI
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println("Error occurred while updating scheduler status: " + e.getMessage());
+            return false; // return false if exception occurs
+        }
+    }
+    @GetMapping("/total-page-count")
+    public ResponseEntity<?> getTotalPageCount() {
+        try {
+            Map<String, Object> response = new HashMap<>();
+            Map<String, Object> totalPageCountData = dataUploadService.getTotalPageCount();
+            response.put("status", "Success");
+            response.put("totalPageCountData", totalPageCountData);
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            return ResponseEntity.status(500)
+                    .body("{\"error\":\"" + e.getMessage() + "\"}");
+        }
     }
 
 }

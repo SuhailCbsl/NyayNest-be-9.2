@@ -9,9 +9,10 @@ import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
-
 import javax.sql.DataSource;
 
 import com.lowagie.text.Document;
@@ -22,10 +23,11 @@ import com.lowagie.text.Paragraph;
 import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
-import org.dspace.app.rest.report.DataUploadService;
 import org.dspace.app.rest.report.dto.DataTrendDTO;
+import org.dspace.app.rest.report.service.DataUploadService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.stereotype.Service;
@@ -34,6 +36,9 @@ import org.springframework.stereotype.Service;
 public class DataUploadServiceImpl implements DataUploadService {
     private static final Logger log = LoggerFactory.getLogger(DataUploadServiceImpl.class);
     private final DataSource dataSource;
+
+    @Autowired
+    private ItemUploadAuto itemUploadAuto;
 
     @Value("${highCourtName}")
     private String highCourtName;
@@ -79,23 +84,32 @@ public class DataUploadServiceImpl implements DataUploadService {
     }
 
     @Override
-    public List<DataTrendDTO> findBetweenTwoDates(String from, String to) {
-        String sql = "SELECT * FROM item_upload_info WHERE date_of_upload BETWEEN ? AND ? order by date_of_upload desc";
+    public List<DataTrendDTO> findBetweenTwoDates(String fromDate, String toDate) {
+//        String sql = "SELECT * FROM item_upload_info WHERE date_of_upload BETWEEN ? AND ? order by date_of_upload desc";
+        String sql ="SELECT i.* FROM item_upload_info i " +
+                "WHERE i.date_of_upload BETWEEN ? AND ? " +
+                "AND i.date_of_upload = ( " +
+                "    SELECT MAX(i2.date_of_upload) " +
+                "    FROM item_upload_info i2 " +
+                "    WHERE i2.barcode_number = i.barcode_number " +
+                "    AND i2.date_of_upload BETWEEN ? AND ? " +
+                ") " +
+                "ORDER BY i.date_of_upload DESC";
         List<DataTrendDTO> list = new ArrayList<>();
         try (Connection conn = dataSource.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql);) {
             // Parse incoming yyyy-MM-dd into LocalDate
-            LocalDate fromLocal = LocalDate.parse(from);  // "2025-09-15"
-            LocalDate toLocal = LocalDate.parse(to);    // "2025-09-17"
+            LocalDate from = LocalDate.parse(fromDate);  // "2025-09-15"
+            LocalDate to = LocalDate.parse(toDate);    // "2025-09-17"
 
             // Convert to start of day and end of day
-            Timestamp fromTs = Timestamp.valueOf(fromLocal.atStartOfDay());
-            Timestamp toTs = Timestamp.valueOf(toLocal.atTime(LocalTime.MAX));
+            Timestamp fromTs = Timestamp.valueOf(from.atStartOfDay());
+            Timestamp toTs = Timestamp.valueOf(to.atTime(LocalTime.MAX));
 
             ps.setTimestamp(1, fromTs);
             ps.setTimestamp(2, toTs);
-//            ps.setTimestamp(3, fromTs);
-//            ps.setTimestamp(4, toTs);
+            ps.setTimestamp(3, fromTs);
+            ps.setTimestamp(4, toTs);
 
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -402,5 +416,58 @@ public class DataUploadServiceImpl implements DataUploadService {
         }
         ByteArrayResource resource = new ByteArrayResource(csv.toString().getBytes());
         return resource;
+    }
+
+    @Override
+    public boolean saveSchedulerStatus() {
+        try {
+            itemUploadAuto.storeItemUploadInfo();  // calling the other method
+            return true; // everything went fine
+        } catch (Exception e) {
+            e.printStackTrace();
+            log.error("Exception occur",e);
+            return false; // something went wrong
+        }
+    }
+    @Override
+    public Map<String, Object> getTotalPageCount() {
+        Map totalPageCountMap = new HashMap();
+        try(Connection conn = dataSource.getConnection();){
+//            String sql = "SELECT i.collection_name,SUM(i.page_count) AS total_pages FROM item_upload_info i where COALESCE(i.delete_status, 'false') = 'false'\n " +
+//                    " GROUP BY i.collection_name ORDER BY i.collection_name; ";
+//            String sql = "SELECT i.collection_name, SUM(i.page_count) AS total_pages " +
+//                            "FROM item_upload_info i " +
+//                            "WHERE COALESCE(i.delete_status, 'false') = 'false' " +
+//                            "AND i.date_of_upload = ( " +
+//                            "    SELECT MIN(i2.date_of_upload) " +
+//                            "    FROM item_upload_info i2 " +
+//                            "    WHERE i2.barcode_number = i.barcode_number " +
+//                            "    AND i2.collection_name = i.collection_name " +
+//                            ") " +
+//                            "GROUP BY i.collection_name " +
+//                            "ORDER BY i.collection_name";
+            String sql = "SELECT collection_name,SUM(page_count) AS total_pages FROM ( " +
+                    " SELECT barcode_number,collection_name,page_count,ROW_NUMBER() OVER ( " +
+                    " PARTITION BY barcode_number, collection_name ORDER BY date_of_upload DESC " +
+                    " ) AS rn FROM item_upload_info WHERE delete_status IS NULL OR delete_status = false " +
+                    " ) t WHERE rn = 1 GROUP BY collection_name ORDER BY collection_name ";
+
+            try (PreparedStatement ps = conn.prepareStatement(sql);) {
+                try (ResultSet resultSet = ps.executeQuery();) {
+                    List<Map<String, Object>> totalPageCountList = new ArrayList<>();
+                    while (resultSet.next()) {
+                        Map<String, Object> row = new HashMap<>();
+                        row.put("collection_name", resultSet.getString("collection_name"));
+                        row.put("page_count", resultSet.getInt("total_pages")); // or "page_count" based on alias
+
+                        totalPageCountList.add(row);
+                    }
+                    totalPageCountMap.put("totalPageCountList",totalPageCountList);
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return totalPageCountMap;
     }
 }
