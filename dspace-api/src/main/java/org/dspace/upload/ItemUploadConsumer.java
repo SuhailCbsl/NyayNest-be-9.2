@@ -39,7 +39,6 @@ public class ItemUploadConsumer implements Consumer {
         bitstreamService = ContentServiceFactory.getInstance().getBitstreamService();
         bitstreamStorageService = StorageServiceFactory.getInstance().getBitstreamStorageService();
 
-        log.info("✅ Consumer initialized");
     }
 
     @Override
@@ -49,22 +48,18 @@ public class ItemUploadConsumer implements Consumer {
             UUID itemId = event.getSubjectID();
 
             if (itemId == null) {
-                log.warn("⚠️ Item ID is null");
                 return;
             }
 
-            // ✅ Use already initialized service (from initialize())
             Item item = itemService.find(ctx, itemId);
 
             if (item == null) {
-                log.warn("⚠️ Item not found for UUID: {}", itemId);
                 return;
             }
 
             String handle = item.getHandle();
 
             if (handle == null) {
-                log.warn("⚠️ Handle is null for item: {}", itemId);
                 return;
             }
 
@@ -73,13 +68,10 @@ public class ItemUploadConsumer implements Consumer {
             switch (eventType) {
 
                 case Event.INSTALL:
-                    log.info("📦 INSTALL event for handle: {}", handle);
-
                     executor.submit(() -> {
                         try {
                             ItemUploadInfoServiceImpl service = new ItemUploadInfoServiceImpl();
 
-                            // ✅ Inject already initialized services
                             service.setItemService(itemService);
                             service.setBitstreamService(bitstreamService);
                             service.setBitstreamStorageService(bitstreamStorageService);
@@ -87,7 +79,7 @@ public class ItemUploadConsumer implements Consumer {
                             service.storeItemUploadInfo(handle);
 
                         } catch (Exception e) {
-                            log.error("❌ Error processing upload info", e);
+                            log.error("Error processing upload info", e);
                         }
                     });
                     break;
@@ -106,7 +98,7 @@ public class ItemUploadConsumer implements Consumer {
                             service.updateStatusForItemUploadInfo(handle, true);
 
                         } catch (Exception e) {
-                            log.error("❌ Error updating delete status", e);
+                            log.error("Error updating delete status", e);
                         }
                     });
                     break;
@@ -116,7 +108,7 @@ public class ItemUploadConsumer implements Consumer {
             }
 
         } catch (Exception e) {
-            log.error("❌ Error in consume()", e);
+            log.error("Error in consume()", e);
         }
     }
 
